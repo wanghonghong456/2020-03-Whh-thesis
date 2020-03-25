@@ -294,7 +294,42 @@ holdings[@Duong2020]
 经济政策不确定性与海外旅行支出之间的关系研究,本研究着眼于来源国内部环境对海外旅
 行支出的影响
 
+### EPU+GARCH-MIDAS+金融市场
 
+1. The importance of global economic policy uncertainty in predicting gold
+   futures market volatility: A GARCH‐MIDAS approach[@Fang2018].
+   
+2. Forecasting performance of global economic policy uncertainty for volatility
+   of Chinese stock market[@Yu2018]
+3. Which determinant is the most informative in forecasting crude oil market
+   volatility: Fundamental, speculation, or uncertainty?[@Wei2017]
+4. The importance of the macroeconomic variables in forecasting stock return
+   variance: A GARCH‐MIDAS approach[@Asgharian2013]
+5. Can economic policy uncertainty predict exchange rate volatility? New
+   evidence from the GARCH-MIDAS model[J]. Finance Research
+   Letters,2019[@Zhou2019].
+6. STOCK MARKET VOLATILITY AND MACROECONOMIC FUNDAMENTALS   The Review of
+   Economics and Statistics   2013-07[@Engle2013].
+7. STOCK MARKET VOLATILITY AND MACROECONOMIC FUNDAMENTALS   The Review of
+   Economics and Statistics   2013-07[@Engle2013].
+8. 中国经济政策不确定性与亚洲股市的动态关系——基于时变Copula模型的分析[@韩菲2018]
+9. 经济不确定性是股市波动的因子吗?——基于GARCH-MIDAS模型的分析[J].中国管理科
+   学,2018,26(12):1-11[@夏婷2018].
+10. 沪铜期货与上证A股长短期波动与动态非对称相关性研究——基于宏观经济因素视角的混频
+   数据分析[J].上海师范大学学报(哲学社会科学版),2019,48(04):113-124[@李佳2019].
+11. 基于GARCH-MIDAS模型的宏观经济与股市波动关系[J].计算机工程与应
+    用,2019,55(15):257-262+270[@石强2019].
+12. Uncertainty and oil volatility: New evidence[J]. Physica A: Statistical
+    Mechanics and its Applications,2019,525[@Mei2019].
+13. The role of the political cycle in the relationship between economic policy
+    uncertainty and the long-run volatility of industry-level stock returns in
+    the United States[@Yu2018a].
+14. The forecasting power of EPU for crude oil return volatility[J]. Energy
+    Reports,2019,5[@Ma2019].
+15. 经济政策不确定性对我国物流指数波动率的影响[J].物流技术,2018[@胡杨2018].
+16. 经济政策不确定性与我国股市波动率预测研究[J].管理科学学报,2018[@雷立坤2018].
+17. 中国经济政策不确定性对公司债波动的影响研究[J].金融与经济,2018[@张茂军2018].
+18. 基于我国货币政策不确定性的股市波动长短期成分测度研究[J].金融发展研究,2017[@周德才2017].
 ## 参考文献
 
 [//]: # (\bibliography{Bibfile})
