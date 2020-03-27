@@ -199,14 +199,32 @@
   % \setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{Adobe Song Std}
   % \setCJKsansfont{AdobeHeitiStd-Regular}
   % \setCJKmonofont{AdobeKaitiStd-Regular}
-  \setCJKmainfont[BoldFont={AdobeHeitiStd-Regular},ItalicFont={AdobeKaitiStd-Regular}]{AdobeSongStd-Light}
-  \setCJKfamilyfont{song}{AdobeSongStd-Light}
-  \setCJKfamilyfont{hei}[BoldFont={AdobeHeitiStd-Regular},ItalicFont={AdobeKaitiStd-Regular}]{AdobeHeitiStd-Regular}
+
+\IfFileExists{C:/Windows/Fonts/AdobeSongStd-Light.otf}{
+ \setCJKmainfont[BoldFont={AdobeHeitiStd-Regular},ItalicFont={AdobeKaitiStd-Regular}]{AdobeSongStd-Light}}
+{\setCJKmainfont[BoldFont=SimHei]{SimSun}}
+
+\IfFileExists{C:/Windows/Fonts/AdobeSongStd-Light.otf}{
+  \setCJKfamilyfont{song}{AdobeSongStd-Light}}{
+  \setCJKfamilyfont{song}{SimSun}}
+
+\IfFileExists{C:/Windows/Fonts/AdobeHeitiStd-Regular.otf}{
+  \setCJKfamilyfont{hei}[BoldFont={AdobeHeitiStd-Regular},ItalicFont={AdobeKaitiStd-Regular}]{AdobeHeitiStd-Regular}}{
+  \setCJKfamilyfont{hei}{SimHei}}
+
+\IfFileExists{C:/Windows/Fonts/AdobeKaitiStd-Regular.otf}{
   \setCJKfamilyfont{kai}{AdobeKaitiStd-Regular}
-  \setCJKfamilyfont{fs}{Sun Yat-sen Hsingshu}
-  % \setCJKfamilyfont{fs}{Sun Yat-sen Hsingshu}
-  \setCJKfamilyfont{li}{Adobe Kaiti Std}
-  \setCJKfamilyfont{you}{Adobe Kaiti Std}
+  \setCJKfamilyfont{li}{AdobeKaitiStd-Regular}
+  \setCJKfamilyfont{you}{AdobeKaitiStd-Regular}
+  }{
+  \setCJKfamilyfont{kai}{SimKai}}
+
+\IfFileExists{C:/Windows/Fonts/AdobeFangsongStd-Regular.otf}{
+  \setCJKfamilyfont{fs}{AdobeFangsongStd-Regular}}{
+  \setCJKfamilyfont{fs}{SimFang}}
+
+% \setCJKfamilyfont{fs}{Sun Yat-sen Hsingshu}
+
 }
 
 \ifisttf
