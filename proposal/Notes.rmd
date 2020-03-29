@@ -16,7 +16,48 @@ autoEqnLabels: false
 classoption: "aspectratio=1610"
 ---
 
-## 研究角度
+题目:**经济政策不确定性对中美股市波动率及联动性的影响研究**
+
+
+# 引言
+
+## 文献综述:
+
+1. 关于经济政策不确定指数的中外文献回顾
+2. 关于GARCH-MIDAS模型的中外文献回顾
+3. 关于中美股市联动性分析的中外文献回顾
+   
+## 研究内容
+
+想要探究中美两国的经济政策不确定性对哪个国家股市的波动率影响更大，以及定量研究经
+济政策不确定性对中美股市联动性的影响。
+
+# 理论方法
+## GARCH-MIDAS
+## DCC-MIDAS
+## MCS检测方法
+# 实证研究一:
+
+## 经济政策不确定性对中国股市的影响研究 
+### 中国EPU与除中国以外的全球EPU对中国股市价格波动率的影响研究
+### 中国EPU与美国EPU对中国股市价格波动率的影响研究
+
+## 经济政策不确定性对美国股市的影响研究
+### 美国EPU与除美国以外的全球EPU对美国股市价格波动率的影响研究
+### 中国EPU与美国EPU对美国股市价格波动率的影响研究
+
+## 模型评估
+### 利用模型结果进行波动率样本外预测
+### 使用MCS方法进行模型评估 
+
+
+# 实证研究二:
+经济政策不确定性指数对中美股市联动性的影响研究
+
+# 结论
+
+# 研究角度
+
 1. 经济不确定性对不同板块的影响以及时期差异性(wind资讯可以获得一级行业指数，比如医疗保健)
    - 选择哪几个板块
 2. 疫情期间，医疗保健行业板块和整个股市的溢出效应
@@ -25,13 +66,20 @@ classoption: "aspectratio=1610"
    - 宏观经济与其他金融资本市场(债券)
    - GARCH-MIDAS模型的应用在哪些方面
   
-## 总结
-关于股市的研究有两类，一类是金融市场不同金融产品(eg.股债两市)相关性的研究，一类
-是宏观经济对金融子市场的影响研究
+# 文献总结整理
 
-## 文献整理
+1. 关于EPU的研究有宏观微观的，
+2. 关于GARCH-MIDAS在金融市场的应用，设计不同模型对比，大致分为三类:
+   * 一类是宏观经济变量对金融市场某个指标(如标普500，上证综指，沪深300，债券，银
+     行同业拆借率)的影响研究,
+   * 一类是经济政策不确定性和宏观经济的结合对金融市场(原油，黄金，股市)的影响研究
+   * 一类是经济政策不确定性对金融市场(股市，汇率)的单独影响研究
 
-### 指标构建类
+3. 利用DCC-MIDAS做宏观层面对金融对象动态关系的影响研究
+
+# 文献整理
+
+## 指标构建类
 [1]李家琦.一个基于主成分分析的探测高维变点的方法[J/OL].数理统计与管理
 :1-12[2020-03-20].https://doi.org/10.13860/j.cnki.sltj.20200223-001[@李家琦2020].
 
@@ -47,7 +95,7 @@ classoption: "aspectratio=1610"
 3. 难点:数据收集
 
 
-### 统计方法应用
+## 统计方法应用
 [1]陈秋华,杨慧荣,崔恒建.变量筛选后的个人信贷评分模型与统计学习[J/OL].数理统计与
 管理:1-13[2020-03-20].https://doi.org/10.13860/j.cnki.sltj.20200223-002[@陈秋华2020].
 
@@ -74,7 +122,7 @@ classoption: "aspectratio=1610"
    间的动态关联性特征及金融风险关联性.
 3. 模型:Ｍarkov三区制状态转移模型与动态相关系数DCC模型
 
-[5]夏婷,闻岳春.经济不确定性是股市波动的因子吗?——基于GARCH-MIDAS模型的分析[J].中
+[5]夏婷,闻岳春.**经济不确定性是股市波动的因子吗?——基于GARCH-MIDAS模型的分析**[J].中
 国管理科学,2018,26(12):1-11[@夏婷2018].
 
 1. 经济不确定有两方面:宏观经济不确定性包括实体经济运行情况、消费情况、货币政策，
@@ -85,13 +133,6 @@ classoption: "aspectratio=1610"
 [6]STOCK MARKET VOLATILITY AND MACROECONOMIC FUNDAMENTALS   The Review of
 Economics and Statistics   2013-07[@Engle2013].
    说明:[8]的英文参考文献
-
-[7]沪铜期货与上证A股长短期波动与动态非对称相关性研究——基于宏观经济因素视角的混
-频数据分析[J].上海师范大学学报(哲学社会科学版),2019,48(04):113-124[@李佳2019].
-
-1. 利用GARCH-MIDAS模型研究宏观经济波动如何影响股票价格和金属商品资产价格波动
-2. 根据上面模型的残差建立DCC-MIDAS动态模型，根据不同历史事件划分样本区间, 考察期
-   货市场和股票市场长期相关性的结构性变化(金融危机前后)。
 
 [8]金融危机和地产调控冲击下地产板块和整体股市的波动性研究[J].统计研究,2019,36(02):38-49[@袁圆2019].
 
@@ -110,7 +151,7 @@ Economics and Statistics   2013-07[@Engle2013].
 [10]中国不同类型经济政策不确定性的宏观经济效应对比研究[J/OL].当代经济科学
    :1-21[2020-03-23].http://kns.cnki.net/kcms/detail/61.1400.F.20200218.1049.002.html[@金春雨2020].
    
-   说明:有适合中国的经济政策不确定性指标
+   说明:有适合中国的经济政策不确定性指标，从2000年1月1日开始
    （https://economicpolicyuncertaintyinchina.weebly.com/）
 
 [11]基于GARCH-MIDAS模型的宏观经济与股市波动关系[J].计算机工程与应用,2019,55(15):257-262+270[@石强2019].
@@ -162,9 +203,9 @@ evidence from the GARCH-MIDAS model[J]. Finance Research Letters,2019[@Zhou2019]
    - 汇率(2003-01-01到2018-09-28的日度数据)
    - 中美经济不确定性:the Sino-US EPU ratio(2003-01到2018-09的月度数据)=中国EPU/美国EPU
 
-### 经济不确定性
+## 经济不确定性
 
-#### 经济政策不确定性与贸易
+### 经济政策不确定性与贸易
 [1]经济政策不确定性对亚太地区进口贸易的影响 亚太经济[@杨旭2020]
 
 1. 数据说明:
@@ -176,7 +217,7 @@ evidence from the GARCH-MIDAS model[J]. Finance Research Letters,2019[@Zhou2019]
    - 影响国内需求
 3. 对进口贸易从质和量两个方面进行分析，以进口技术复杂度进行衡量。
 
-#### 微观:经济不确定性与企业的投资行为
+### 微观:经济不确定性与企业的投资行为
 
 [2]经济政策不确定性、财务柔性与企业研发投资的关系研究 中国物价[@张依婷2020]
 
@@ -199,8 +240,7 @@ evidence from the GARCH-MIDAS model[J]. Finance Research Letters,2019[@Zhou2019]
    并用算术平均法将其转化为年度变量。
 4. 选取了2009～2016年中国所有创业板上市公司为研究样本
 
-
-#### 经济政策不确定性与宏观经济
+### 经济政策不确定性与外商直接投资、就业率等宏观经济
 
 [1]经济政策不确定性对FDI影响研究 经济问题[@单东方2020]
 
@@ -229,11 +269,7 @@ evidence from the GARCH-MIDAS model[J]. Finance Research Letters,2019[@Zhou2019]
 
 Baker等的全球经济政策不确定性指数和FDI
 
-[4]经济政策不确定性与我国股市的波动率预测[@余江2018]
-
-1. 我国经济政策不确定性对沪深300指数波动率的预测作用.
-
-[5]经济政策不确定性对经济波动的动态影响[@孙永强2018]
+[4]经济政策不确定性对经济波动的动态影响[@孙永强2018]
 
 1. 采用MVEGARCH模型，对中国等多个国家经济政策不确定性与经济波动之间的影响机制
 进行了实证分析.以通货膨胀和产出来衡量经济波动,采用居民消费价格指数(CPI)反映通货
@@ -242,6 +278,12 @@ Baker等的全球经济政策不确定性指数和FDI
 2. 经济不确定性用2013年Bake和Bloom构造的EPU指数
    Baker，S． B． ，Bloom，N． ，2013． “Does Uncertainty Ｒeduce Growth?”NBEＲ
    Working Paper． No． 19475．
+
+### 我国经济政策不确定指数对不同股市的影响
+
+[1]经济政策不确定性与我国股市的波动率预测[@余江2018]
+
+1. 我国经济政策不确定性对沪深300指数波动率的预测作用.
 
 [6]中国经济政策不确定性与亚洲股市的动态关系——基于时变Copula模型的分析[@韩菲2018]
 
@@ -256,12 +298,14 @@ Baker等的全球经济政策不确定性指数和FDI
    不确定性的代理变量
 
 
-#### 外国文献
+### 外国文献
+
+#### EPU与FDI
 
 [1]Determinants of foreign direct investment inflows: The role of economic
 policy uncertainty[@Canh2020]
 
-1. 外国直接投资流入的决定因素：经济政策不确定性的作用本文研究了
+1. 外国直接投资流入的决定因素：经济政策不确定性的作用
 
 2. 摘要：2003-2013年间21个经济体的国内经济政策不确定性（EPU）和世界不确定性（WUI）对净外
 国直接投资流入（FDI）的影响。通过使用线性面板数据模型的顺序（两阶段）技术，本研
@@ -271,6 +315,8 @@ policy uncertainty[@Canh2020]
 投资的流入有不利影响；全球（世界）经济政策不确定性的增加可能会增加流入该国的外国
 直接投资。我们通过行为偏差（锚定和调整）的存在来解释这种对全球不确定性的系统厌
 恶，从而说明投资者对其将框架与不确定性相关联的能力的敏感性。
+
+3. 自己的EPU对FDI的影响；世界的EPU对FDI的影响
 
 [2]Tail dependence structures between economic policy uncertainty and foreign
 exchange markets: Nonparametric quantiles methods[@Al-Yahyaee2020]
@@ -285,17 +331,23 @@ exchange markets: Nonparametric quantiles methods[@Al-Yahyaee2020]
 后，在我们对2008-2009年全球金融危机（GFC）进行分析期间，EPU与FER之间的联系得到了
 加强。这些结果对货币交易者和货币政策具有重要意义。
 
-[3]Navigating through economic policy uncertainty: The role of corporate cash
+#### EPU与微观层面的关系研究
+
+[1]Navigating through economic policy uncertainty: The role of corporate cash
 holdings[@Duong2020]
 
 微观方面（应对经济政策的不确定性：公司现金持有量的作用）
 
-[4]A study on the relationship between economic policy uncertainty and overseas travel expenditure[@김도경2020]
+[2]A study on the relationship between economic policy uncertainty and overseas travel expenditure[@김도경2020]
 
 经济政策不确定性与海外旅行支出之间的关系研究,本研究着眼于来源国内部环境对海外旅
 行支出的影响
 
-### EPU+GARCH-MIDAS+金融市场
+## EPU+GARCH-MIDAS+金融市场
+
+### 外文文献
+
+#### GEPU与黄金
 
 1. The importance of global economic policy uncertainty in predicting gold
    futures market volatility: A GARCH‐MIDAS approach[@Fang2018].
@@ -337,12 +389,13 @@ holdings[@Duong2020]
    GARCH-MIDAS model with RV; 
    GARCH-MIDAS model with RV+EPU
    然后进行模型评估，样本外预测，并和GARCH(1,1)比较
-  
 
-2. Forecasting performance of global economic policy uncertainty for volatility
+#### GEPU与中国股市  
+
+1. Forecasting performance of global economic policy uncertainty for volatility
    of Chinese stock market[@Yu2018]
 
-   **GEPU对上证综指波动率的影响研究；**
+   GEPU对上证综指波动率的影响研究；
 
    用GARCH-MIDAS模型来评估每月GEPU指数对每日的影响上证综合指数。我们的实证结果表
    明，GEPU对中国股市的波动性具有积极而显着的影响，这表明中国股市已逐渐融入全球
@@ -350,7 +403,10 @@ holdings[@Duong2020]
    RMAE，RMSD，RMAD损失函数和DMtest测得）相比，使用GEPU和RV（实际波动率）的
    GARCH-MIDAS模型生成的预测产生的误差要小得多。总的来说，我们的发现表明GEPU是中
    国股市长期波动性的附加驱动因素。
-3. Which determinant is the most informative in forecasting crude oil market
+
+#### GEPU与原油
+
+1. Which determinant is the most informative in forecasting crude oil market
    volatility: Fundamental, speculation, or uncertainty?[@Wei2017]
 
    将全球经济政策不确定性（GEPU）指数和一些国家经济政策不确定性（EPU）指数与传统
@@ -408,10 +464,23 @@ holdings[@Duong2020]
       * 以8个EPU和3个宏观变量为自变量建立11个GARCH-MIDAS模型，然后通过MCS来发现预测波动率的最佳变量。
       * 三个DMA模型组合分别为:所有EPU,所有宏观变量，所有变量。
 
-     Conrad et al.(2014)研究了石油和股票市场的相关性，并且检测是否石油波动率，股
-     票波动率以及他们之间的相关性对于同一个宏观经济信息的反应
+2. Uncertainty and oil volatility: New evidence[J]. Physica A: Statistical
+   Mechanics and its Applications,2019,525[@Mei2019].
+3. The forecasting power of EPU for crude oil return volatility[J]. Energy
+    Reports,2019,5[@Ma2019].
+    - 8个EPU中，看哪个EPU对石油收益波动率预测效果最佳(两个GEPU,进口国美国，欧
+      洲，中国；输出国俄罗斯，墨西哥，加拿大)
+    - 变量:8个EPU,1个CVX(Crude Oil Volatility Index)，一个原油数据
+    - 原油数据用Brent crude oil prices(from Bloomberg database)
+    - 模型:
+      * 首先构建含有不同EPU的8个GARCH-MIDAS模型，EPU有不同滞后项
+      * 然后构建同时还有EPU和CVX的8个GARCH-MIDAS模型，还有一个只含有CVX的模型，
+        含有两个变量的模型和仅有CVX的模型做比较
+      * 用MCS检验做模型比较
 
-4. The importance of the macroeconomic variables in forecasting stock returnzui
+#### 宏观经济变量与美国股市
+
+1. The importance of the macroeconomic variables in forecasting stock return
    variance: A GARCH‐MIDAS approach[@Asgharian2013]
    
    我们研究了一大批宏观经济变量，包括意外通货膨胀，定期溢价，人均劳动收入增长，
@@ -436,22 +505,21 @@ holdings[@Duong2020]
    GARCH-MIDAS MODEL WITH RV+Xl+XV（Xl和Xv分别表示宏观经济变量的均值和波动率）;
    GARCH-MIDAS MODEL WITH Xl+XV
 
-5. Can economic policy uncertainty predict exchange rate volatility? New
-   evidence from the GARCH-MIDAS model[J]. Finance Research
-   Letters,2019[@Zhou2019].
-   * 研究对象:中美经济政策的不确定性对汇率波动性的影响
-   * 模型:GARCH-MIDAS与传统的GARCH类模型（GARCH,TGARCH,EGARCH,PGARCH）进行对比
-   * 内容:the Sino-US EPU ratio对中国汇率波动率的影响以及the Sino-US EPU ratio如何预测汇率的波动性。
-   * 细节:汇率从2005年开始发行，2016年，RMB加入SDR,成为继美元欧元之后占比第三的
-     货币。汇率波动会影响对外贸易成本，增加国内外投资风险。
-   * 创新:研究对象的选择有新意
-   * 指标:
-     - 汇率(2003-01-01到2018-09-28的日度数据)
-     - 中美经济不确定性:the Sino-US EPU ratio(2003-01到2018-09的月度数据)=中国EPU/美国EPU
-
-
-6. **STOCK MARKET VOLATILITY AND MACROECONOMIC FUNDAMENTALS   The Review of
+2. **STOCK MARKET VOLATILITY AND MACROECONOMIC FUNDAMENTALS   The Review of
    Economics and Statistics **  2013-07[@Engle2013].
+   - 摘要:
+     我们使用一类新的成分模型重新审视了股票市场的波动性与宏观经济活动之间的关
+     系，该模型将短期与长期波动区分开。正如Schwert（1989）一样，我们研究了始于19
+     世纪的长期总体股市波动的历史数据系列。我们以通胀和工业生产增长为驱动力的长
+     期成分来制定模型，这些模型在针对四分之一水平的伪样本外预测中处于同等水平，
+     而在更长时间内与传统时间序列波动性模型处于同等或优于同等水平视野。因此，将
+     经济基本面纳入波动率模型可以带来长期预测。我们还发现，在每天的水平上，通货
+     膨胀和工业生产增长占提前一天的波动预测的10％至35％。因此，即使在短期内，宏
+     观经济基本面也发挥着重要作用。不幸的是，所有模型-纯粹是时间序列模型，以及受
+     经济变量驱动的模型-都具有跨越整个样本的结构突破，这些样本跨越了大约一个半世
+     纪的每日数据。因此，我们的分析还集中在子样本上，即第一次世界大战之前，大萧
+     条时代和第二次世界大战之后（也用于检验所谓的“大温和”）。我们的主要发现在所
+     有子样本中仍然有效。
    - 特点:
      将经济基本面并归到波动率模型中，可以进行长短期预测，计算经济基本面变量对波
      动率的贡献度。用通货膨胀和工业生产增长驱动的长期成分来制定模型，在一个季度
@@ -465,36 +533,171 @@ holdings[@Duong2020]
         阶数，不同滞后阶数的权重不同。
       * 长期波动部分为RV时，有固定窗口和滚动窗口两种
       * 长期波动部分为经济变量IP(PPI)时，有IP(PPI)水平和IP(PPI)波动率对STOCK波动率的影响3种
+3. Two are better than one:volatility forecasting using multiplicative
+   component GARCH-MIDAS models(2019)[@Conrad2020]
+   - 是对所有乘积M-GARCH类模型的总结。
+     GARCH-MIDAS模型将是我们乘积GARCH（M-GARCH）模型的主要示例; 
+     Haas(2004)等人的Markov-Switching GARCH（MS-GARCH);
+     Engle和Rangel（2008)的Spline-GARCH;
+     Amado和Terâasvirta(2008)的乘性时变GARCH（MTV-GARCH）
+   - 在样本外预测时，将GARCH-MIDAS与HAR(Corsi2009), the Realized
+     GARCH(Hansen2012), the HEAVY（Shephard and Sheppard2010),以及MS-GARCH4种模
+     型做比较.根据有或没有杠杆的共8个模型。
+4. A Regime-Switching GARCH-MIDAS Approach to Modelling Stock Market Volatility
+    - 导致波动的因素有四个：实际消费，消费者信心，房屋价格和价差
+    - 研究对象:美国标准普尔指数
+    - 结果:
+      马尔可夫转换并没有提高GARCH-MIDAS的性能，在预测时甚至更差。这意味着在
+      该GARCH-MIDAS设置中考虑的宏观经济变量已经包含了与区制变更相关的信息。
+    - 展望:
+      在考虑S＆P500指数时，500种个体股票的聚集减少了个体冲击的影响，因此宏
+      观经济效应比单个股票可能存在的影响更为明显，还应探索波动过程变化的不同方
+      法，例如，宏观经济变量的意义取决于经济状况可能是合理的，因此在经济低迷时
+      期影响可能更大。当宏观经济基本面发生重大变化时，可以通过马尔可夫转换MIDAS
+      组件或MIDAS组件的激活函数来探索这一点。
 
+#### EPU与美国股市
 
-7. 中国经济政策不确定性与亚洲股市的动态关系——基于时变Copula模型的分析[@韩菲2018]
-8. 经济不确定性是股市波动的因子吗?——基于GARCH-MIDAS模型的分析[J].中国管理科
+1. The role of the political cycle in the relationship between economic policy
+   uncertainty and the long-run volatility of industry-level stock returns in
+   the United States[@Yu2018a]. 
+
+   * 政治周期在美国经济政策不确定性与行业水平股票收益的长期波动之间的关系中的作用
+
+#### 中美经济不确定性对汇率
+
+1. Can economic policy uncertainty predict exchange rate volatility? New
+   evidence from the GARCH-MIDAS model[J]. Finance Research
+   Letters,2019[@Zhou2019].
+   * 研究对象:中美经济政策的不确定性对汇率波动性的影响
+   * 模型:GARCH-MIDAS与传统的GARCH类模型（GARCH,TGARCH,EGARCH,PGARCH）进行对比
+   * 内容:the Sino-US EPU ratio对中国汇率波动率的影响以及the Sino-US EPU ratio如何预测汇率的波动性。
+   * 细节:汇率从2005年开始发行，2016年，RMB加入SDR,成为继美元欧元之后占比第三的
+     货币。汇率波动会影响对外贸易成本，增加国内外投资风险。
+   * 创新:研究对象的选择有新意
+   * 指标:
+     - 汇率(2003-01-01到2018-09-28的日度数据)
+     - 中美经济不确定性:the Sino-US EPU ratio(2003-01到2018-09的月度数据)=中国EPU/美国EPU
+#### 其他
+1. Forecasting stock price volatility: New evidence from the GARCH-MIDAS
+   model[J]. International Journal of Forecasting,2020,36(2)[@Wang2020].
+   - 对象:美国标准普尔指数
+   - 模型:通过改变GARCH-MIDAS模型中短期成分和长期成分的模型设定，共构建三种模型
+      * 标准的GARCH-MIDAS模型：残差项时正态分布，短期成分是GARCH(1,1),长期成分是
+        包含已实现波动率滞后项的模型
+      * 包含非对称效应的GARCH-MIDAS:短期成分中使用GJR(1,1)模型，长期成分用包含已
+        实现的半方差量度，可以分别显示正收益和负收益的变化。
+      * 含有极端效应的GARCH-MIDAS
+      * 同时含有非对称效应和极端效应的GARCH-MIDAS
+   - 摘要:
+     文章介绍了非对称性和极端波动性影响的组合，以建立用于建模和预测股票波动性的
+     GARCH-MIDAS模型的出色扩展。我们的样本结果清楚地证明了极端冲击对股票的波动性
+     有重大影响，并且波动性在长期和短期内受不对称效应的影响要大于受极端波动效应
+     的影响。 带有多个鲁棒性检查的样本外结果表明，我们提出的模型可以在预测波动率
+     方面取得更好的性能。 此外，预测能力的提高更强烈地归因于短期波动性成分的不对
+     称性和极端波动性效应的引入。
+2. 极端波动下的股市波动率预测研究--基于非对称GARCH-MIDAS模型[D].西南交通大学,2019[@杨林2019].
+   模型说明:对于短期成分用GJR-GARCH模型替换标准GARCH-MIDAS模型中的GARCH过程,
+   长期成分则是把已实现波动率分解成已实现正方差和已实现负方差。此外,为了捕获市场
+   中由极端事件引起的极端波动,本文对GARCH-MIDAS模型进行了进一步的改进,其中在短期
+   成分中引入不同的门限变量,而在长期成分中的做法是把已实现波动率进一步分解。通过
+   上面的改进本文得到了15种不同的GARCH-MIDAS模型。
+
+### 国内文献
+
+#### 中国EPU与不同股市
+
+1. 中国经济政策不确定性与亚洲股市的动态关系——基于时变Copula模型的分析[@韩菲2018]
+2. 经济不确定性是股市波动的因子吗?——基于GARCH-MIDAS模型的分析[J].中国管理科
    学,2018,26(12):1-11[@夏婷2018].
-9. 沪铜期货与上证A股长短期波动与动态非对称相关性研究——基于宏观经济因素视角的混频
-   数据分析[J].上海师范大学学报(哲学社会科学版),2019,48(04):113-124[@李佳2019].
-10. 基于GARCH-MIDAS模型的宏观经济与股市波动关系[J].计算机工程与应
-    用,2019,55(15):257-262+270[@石强2019].
-11. Uncertainty and oil volatility: New evidence[J]. Physica A: Statistical
-    Mechanics and its Applications,2019,525[@Mei2019].
+   * 经济不确定有两方面:宏观经济不确定性包括实体经济运行情况、消费情况、货币政
+     策，经济政策不确定性用EPU指标
+   * 将外生变量引入多元混频模型，分析短期波动率和长期波动率。
+   * 研究对象为A股和B股
+3. 经济政策不确定性与我国股市波动率预测研究[J].管理科学学报,2018[@雷立坤2018].
+   * 研究对象:Baker的经济政策不确定性 (economic policy uncertainty, EPU) 指数和
+     我国股市代表性的股价指数——上证综指
+   * 不同EPU滞后期的GARCH-MIDAS模型与采用同频数据的GARCH族模型做比较
+4. 经济政策不确定性与我国股市的波动率预测[@余江2018]
+   * 研究对象为沪深300指数
+5. 中国经济政策不确定性对公司债波动的影响研究[J].金融与经济,2018[@张茂军2018].
 
-12. The role of the political cycle in the relationship between economic policy
-    uncertainty and the long-run volatility of industry-level stock returns in
-    the United States[@Yu2018a].
-13. The forecasting power of EPU for crude oil return volatility[J]. Energy
-    Reports,2019,5[@Ma2019].
-    - 8个EPU中，看哪个EPU对石油收益波动率预测效果最佳(两个GEPU,进口国美国，欧
-      洲，中国；输出国俄罗斯，墨西哥，加拿大)
-    - 变量:8个EPU,1个CVX(Crude Oil Volatility Index)，一个原油数据
-    - 原油数据用Brent crude oil prices(from Bloomberg database)
-    - 模型:
-      * 首先构建含有不同EPU的8个GARCH-MIDAS模型，EPU有不同滞后项
-      * 然后构建同时还有EPU和CVX的8个GARCH-MIDAS模型，还有一个只含有CVX的模型，
-        含有两个变量的模型和仅有CVX的模型做比较
-      * 用MCS检验做模型比较
-14. 经济政策不确定性对我国物流指数波动率的影响[J].物流技术,2018[@胡杨2018].
-15. 经济政策不确定性与我国股市波动率预测研究[J].管理科学学报,2018[@雷立坤2018].
-16. 中国经济政策不确定性对公司债波动的影响研究[J].金融与经济,2018[@张茂军2018].
-17. 基于我国货币政策不确定性的股市波动长短期成分测度研究[J].金融发展研究,2017[@周德才2017].
+7. 引入经济政策不确定性指标的沪深300指数已实现波动率建模研究[D].南京大学,2019[@杨涛2019].
+   * 经济政策不确定性用陆尚勤和黄昀(2019)编制的日度和月度中国经济政策不确定性指
+     数(China Economic Policy Uncertainty Index,CEPU指数)
+   * GARCH-MIDAS-D(日度),GARCH-MIDAS-M(月度),GARCH-MIDAS
+
+8. 我国股票市场波动与经济政策不确定性的关联性研究[D].吉林大学,2017[@王永莲2017].
+
+9. 经济政策不确定性与股市波动关系研究[J].价值工程,2019,38(05):192-196[@石强2019a]
+   - 从经济政策不确定性波动率和水平值两方面进行不同时期的GARCH-MIDAS模型构建
+
+**总结** 关于EPU与中国金融市场的研究，研究对象多为股市，具体由上证综指，由
+沪深300，同时涉及研究角度(水平值和波动率)和数据的不同(Baker或者黄昀)
+
+#### 中国宏观经济与中国股市
+
+1. 基于GARCH-MIDAS模型的宏观经济与股市波动关系[J].计算机工程与应
+    用,2019,55(15):257-262+270[@石强2019].
+2. 基于我国货币政策不确定性的股市波动长短期成分测度研究[J].金融发展研究,2017[@周德才2017].
+   * 我国综合股价指数:选择上证综指 (SHZI) 、深证综指 (SZCI) 以及香港恒生中国企业
+     指数 (HSCEI) 三个股票指数的日收益率, 使用BDFM模型测度得到股市贝叶斯动态公因
+     子作为综合股价指数。
+   * 货币政策不确定指标:基于货币供应量、利率、汇率、信贷四个货币政策变量, 使用HP
+     滤波得到其不确定性成分, 构建金融状况指数 (FCI) 作为货币政策的代理变量
+3. 债券市场收益率波动与风险测量研究——基于GARCH-MIDAS模型分析[J].价格理论与实
+   践,2018(10):101-104.
+   - 变量为利率、通货膨胀、经济增长、货币供给以及替代金融资产的价格
+   - 从宏观金融变量的水平和波动率两个方面进行研究
+
+#### 其他
+
+1. 经济政策不确定性对我国物流指数波动率的影响[J].物流技术,2018[@胡杨2018].
+
+## 基于宏观经济因素的金融市场关系研究
+
+1. 沪铜期货与上证A股长短期波动与动态非对称相关性研究——基于宏观经济因素视角的混频
+   数据分析[J].上海师范大学学报(哲学社会科学版),2019,48(04):113-124[@李佳2019].
+   - 不涉及EPU
+   - 研究对象:上海期货交易所沪铜期货和上证A股综合指数以及中国宏观经济景气指数
+   - 模型:
+      * 用GARCH-MIDAS考察中国宏观经济对商品期货市场和股票市场长短期价格波动的影响,
+      * 用DCC-MIDAS模型(根据2008年金融危机这一历史事件划分样本区间)考察期货市场
+        和股票市场长期相关性在金融危机前后存在的结构性变动。
+
+2. Conrad et al.(2014)研究了石油和股票市场的相关性，并且检测是否石油波动率，股
+     票波动率以及他们之间的相关性对于同一个宏观经济信息的反应
+
+3. 经济政策不确定性如何影响金融市场间的流动性协同运动?——基于中国金融周期的视角
+   [J].统计研究,2020,37(02):37-51[@张宗新2020].
+   - 涉及EPU
+   - 股债两市流动性的相关性(经济政策不确定性如何影响股债两市流动性自身的波动及市场
+     间的联动,进一步考察这一影响在金融周期的不同阶段是否呈现非对称性)。
+   - 模型:DCC-MIDAS，流动性测度
+   - 创新点:
+     * 现有对金融市场动态相关性的研究普遍集中于收益及其波动，作者从市场流动性联动的视角出发
+     * 对DCC-GARCH-MIDAS模型引入经济不确定性和经济周期虚拟变量
+
+4. 银行间债券市场与利率互换市场的联动性——基于DCC-MIDAS模型的实证[J].系统工
+   程,2018,36(01):13-21[@张屹山2018].
+   - 不涉及EPU
+   - 大多数研究学者认为金融市场的波动一部分来源于宏观经济波动，还有一部分来源于
+     随机的突发事件、日内交易及投资者情绪等，根据金融市场波动率的产生根源，可以
+     将金融市场的波动进行成分分解。应用DCC-MIDAS模型，从长短期两个角度考察中国银
+     行间债券市场与利率互换市场之间的联动性及宏观经济风险对两个市场波动性的影
+     响。
+   - 创新点：
+     * 在DCC-MIDAS中引入宏观经济风险
+     * 研究对象的创新:银行间债券市场与利率互换市场，大部分研究是关注股市.
+   - 模型：DCC-MIDAS模型是DCC模型和GARCH-MIDAS模型的有机结合，不仅能够刻画每个市
+     场的混频成分波动，还能分析多个市场间的波动率成分动态条件相关。
+   - 对象:
+     * 债券:银行间债券市场总指数的财富指数
+     * 宏观经济变量季节性处理后的残差序列平方作为波动率来度量经济波动性。
+
+**总结** 国内文献对金融市场相关性的研究中引入EPU的文献很少,宏观经济对股市的影响
+中有水平值和波动率两方面
+
 ## 参考文献
 
 [//]: # (\bibliography{Bibfile})
