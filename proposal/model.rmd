@@ -179,10 +179,13 @@ $$LLF=-\frac{1}{2} \sum_{t=1}^{T}\left[\log g_{t}(\Phi)
 
 ## DCC-MIDAS模型
 
-### 单变量DCC-MIDAS
+___
 
 DCC-MIDAS模型由Colacito,Engle和Ghysel于2011年提出，它将GARCH-MIDAS模型和DCC结合
-起来,用于通过混频数据提取长期相关性成分[@Colacito2011]。下面对该模型作出介绍。
+起来,用于通过混频数据提取长期相关性成分[@Colacito2011]。实际上，DCC-MIDAS模型是
+对具有动态相关性的GARCH-MIDAS模型的多元拓展。下面对该模型作出介绍。
+
+### 初步说明
 
 假设
 $$\begin{aligned}
@@ -194,6 +197,9 @@ $\mu$ 是无条件方差向量，$H_t$是条件方差矩阵，$D_t$是对角矩�
 每个收益率的标准差，$R_{t}$是条件相关矩阵，
 $R_{t}=E_{t-1}\left[\xi_{t} \xi_{t}^{\prime}\right]$ , $\xi_t=D_t^{-1}(\mathbf{r}_{t}-\mu)$.
 因此 $\mathbf{r}_{t}=\mu+H_t^{1/2}\xi_t$ , $\xi_t\sim_{\mathrm{i} . \mathrm{i} . \mathrm{d} .}N(0,I_n)$
+
+也就是说DCC-MIDAS将条件协方差矩阵 $H_t$ 分解为条件方差矩阵 $D_t$ 和条件相关关系
+矩阵 $R_t$ 。
 
 ___
 
@@ -214,7 +220,7 @@ $$m_{i, \tau}=\bar{m}_{i}+\theta_{i} \sum_{l=1}^{K_{\nu}^{i}}
 
 ___
 
-其中，$R V_{i, \tau}=\sum_{j=(\tau-1) N_{v}^{i}+1}^{\tau N_{v}^{i}}\left(r_{i,
+其中，$RV_{i, \tau}=\sum_{j=(\tau-1) N_{v}^{i}+1}^{\tau N_{v}^{i}}\left(r_{i,
 j}\right)^{2}$，$N_{v}^{i}$可以是一个月或一个季度。权重系数$\varphi$通过Beta函数
 给定:
 
@@ -226,7 +232,7 @@ $$\varphi_{l}\left(\omega_{v}^{i}\right)=\frac{\left(1-\frac{1}{K_{i}^{i}}\right
 [@eq:weight]中的Beta函数满足 $\omega_1=\omega_2$ 时,式[@eq:weight]就变为式
 [@eq:weight2]。
 
-___
+### 单变量DCC-MIDAS
 
 在长期波动成分，$m_{i,\tau}$既可以保持局部不变，又可以基于局部移动窗口来表示。但
 Engle(2006)等人发现这两者之间的差异可以忽略不计。考虑到局部移动窗口有更大的适用
@@ -235,18 +241,15 @@ $\xi_{i,t}$ ,可以得到一个矩阵 $Q_t$ ,他的元素是:
 
 $$q_{i, j, t}=\bar{\rho}_{i, j, t}(1-a-b)+a \xi_{i, t-1} \xi_{j, t-1}+b q_{i, j,
 t-1}$$ {#eq:dcc-midas}
-
 $$\bar{\rho}_{i, j, t}=\sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r}^{i
 j}\right) c_{i, j, t-l}$$
-
 $$c_{i, j, t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j, k}}{\sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k}^{2}} \sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{j, k}^{2}}}$$
-
 $$\rho_{i, j, t}=\frac{q_{i, j, t}}{\sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}}$$ {#eq:dcc-midas-q}
 
 
 ___
 
-其中，$q_{i,j,t}$ 是资产 $i$ 和资产 $j$ 的短期相关系数,$\bar{\rho_{i,j,t}}$ 是长
+其中，$q_{i,j,t}$ 是资产 $i$ 和资产 $j$ 的短期相关系数,$\bar{\rho}_{i,j,t}$ 是长
 期相关系数。可以看出，短期相关系数和长期相关系数都是GARCH-MIDAS部分标准残差序列
 的函数。式[@eq:dcc-midas] 可以重写成:
 
@@ -255,8 +258,39 @@ $$q_{i, j, t}-\bar{\rho}_{i, j, t}=a\left(\xi_{i, t-1} \xi_{j, t-1}-\bar{\rho}_{
 这表示短期相关系数围绕着长期相关系数波动。DCC-MIDAS模型的思想与GARCH-MIDAS模型类
 似。在GARCH-MIDAS中，提取了波动的两个组成成分，一个涉及短期波动，一个涉及长期波
 动。短期波动成分基于每日的回报率，它围绕由一定时间段内(一个月或一个季度)的已实现
-波动率驱动的长期波动成分上下浮动。并且同样可以将长期相关系数与宏观变量联系起来。
+波动率驱动的长期波动成分上下浮动。并且同样可以将相关系数与宏观变量联系起来,建立
+类似于GARCH-MIDAS的动态过程。
 
+___
+
+接下来给出DCC-MIDAS模型的通用矩阵形式。
+
+$$\begin{array}{l}
+R_{t}=\left(Q_{t}^{*}\right)^{-1 / 2} Q_{t}\left(Q_{t}^{*}\right)^{-1 / 2} \\
+Q_{t}^{*}=\operatorname{diag} Q_{t} \\
+Q_{t}=(1-a-b) \bar{R}_{t}\left(\omega_{r}\right)+a \xi_{t} \xi_{t}^{\prime}+b Q_{t-1}
+\end{array}$$
+
+其中，$\bar{R}_{t}\left(\underline{\omega}_{r}\right)=\sum_{l=1}^{K_{c}} \Phi_{l}\left(\underline{\omega}_{r}\right) \odot C_{t-l}$ 
+
+$$C_{t}=\left(\begin{array}{ccc}
+v_{1, t} & 0 & 0 \\
+\vdots & \ddots & 0 \\
+0 & \cdots & v_{n, t}
+\end{array}\right)^{-\frac{1}{2}}\times\left(\sum_{k=t-N_{0}}^{t} \xi_{k} \xi_{k}^{\prime}\right)
+\times\left(\begin{array}{cccc}
+v_{1, t} & 0 & 0 \\
+\vdots & \ddots & 0 \\
+0 & \cdots & v_{n, t}
+\end{array}\right)^{-\frac{1}{2}}$$
+
+$$v_{i, t}=\sum_{k=t-N_{c}}^{t} \xi_{i, k}^{2}, \quad \forall i=1, \ldots, n$$
+
+其中, 所有的 $\omega_r^{ij}$ 都放在向量 $\underline{\omega}_{r}$ 中,这个向量可能
+只包含一个元素，因为可以设置所有的权重系数是相等的。$N_c=max_{i,j}N_c^{ij}$
+. $\odot$ 表示哈达玛积(两个同阶矩阵对应元素相乘)。
+
+$$\Phi_{l}\left(\underline{\omega}_{r}\right)=\varphi_{l}\left(\underline{\omega}_{r}\right)u^{\prime}$$
 
 ___
 
@@ -264,7 +298,6 @@ $$\begin{aligned}
 QL(\Phi, \Xi) &=Q L_{1}(\Phi)+Q L_{2}(\Phi, \Xi) \\
 & \equiv-\sum_{t=1}^{T}\left(n \log (2 \pi)+2 \log \left|D_{t}\right|+r_{t}^{\prime} D_{t}^{-2} r_{t}\right)-\sum_{t=1}^{T}\left(\log \left|R_{t}\right|+\xi_{t}^{\prime} R_{t}^{-1} \xi_{t}+\xi_{t}^{\prime} \xi_{t}\right)
 \end{aligned}$$
-
 DCC-MIDAS的估计采用两步法，$\Phi$ 中包含了GARCH--MIDAS部分的待估参数
 $(\mu,\alpha,\beta,\omega,m,\theta)$ ,$\Xi$ 包含了DCC-MIDAS中的待估参数
 $(a,b,\omega_r)$ 。具体计算时，第一步估计 $\Phi$ ，然后再利用所估计的系数计算标
@@ -520,3 +553,207 @@ eq_xy=midas_r(y~mls(y,1:6,1,nealmon)+mls(x,0:7,4,nealmon),start=list(y=c(1,-0.5)
 summary(eq_xy)
 ```
 ___
+
+### RCC-MIDAS函数介绍(matlab)
+
+```
+#matlab代码
+data = xlsread('C:\Users\LENOVO\Desktop\data.xlsx');
+[estParamsStep1,EstParamCovStep1,estParamsStep2,EstParamCovStep2,Variance,LongRunVar,CorrMatrix,LongRunCorrMatrix]...
+= DccMidas(data,'Period',20,'NumLagsVar',36,'NumLagsCorr',144,'ZeroLogL',1:7200,'mu0',0.001,'option',optimoptions('fmincon','Algorithm','active-set'));
+[estParamsStep1,EstParamCovStep1,estParamsStep2,EstParamCovStep2,Variance,LongRunVar,CorrMatrix,LongRunCorrMatrix]...
+= DccMidas(data,'Period',20,'NumLagsVar',36,'NumLagsCorr',144,'ZeroLogL',1:7200,'mu0',0.001,'option',optimoptions('fmincon','Display','Iter'));
+```
+
+period:指定一个周期有多少天，此值适用于已实现波动率汇总和历史样本相关矩阵汇总，即
+$RV_t=\sum_{i=1}^{N_t}r_{i,t}^2$ 中的$N_t$ 和 $c_{i, j,
+t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j,
+k}}{\sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k}^{2}} \sqrt{\sum_{k=t-N_{c}^{i
+j}}^{t} \xi_{j, k}^{2}}}$ 中的$N_{i，j}$ 。默认为22(按月汇总)
+
+numlagsvar:指定GARCH-MIDAS中的滞后阶数，默认是10.即
+ $\tau_{t}=m+\theta_{1} \sum_{k=1}^{K} \varphi_{1k}\left(\omega_{11}, \omega_{12}\right) RV_{t-k}+\theta_{2} \sum_{k=1}^{K} \varphi_{2k}\left(\omega_{21}, \omega_{22}\right)
+X_{t-k}$ 中的K
+
+numlagscorr:指定DCC-MIDAS中的滞后阶数，默认是10。
+即$\bar{\rho}_{i, j, t}=\sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r}^{i
+j}\right) c_{i, j, t-l}$ 中的 $k_{ij}$ .
+
+___
+
+estsample:指定被用于参数估计的样本大小DATA`[1:EstSample,:]`,剩余样本用于条件方差预
+测。默认EstSample=len(y).
+
+rollwindow:一个逻辑值，指示长期组件上的滚动窗口估计。 如果为true，则长期组件在每
+个周期都会变化。 如果为false，则长期组件将固定为一周/月/季度/年。 这是两个估算步
+骤。 默认为false.
+即在固定窗口下，第一个周期即 $t=1$ 时，$R V_{1}=\sum_{i=1}^{22} r_{i,1}^{2}$ ,
+第二个周期即$t=2$ 时，$RV_{2}=\sum_{i=1}^{22} r_{i,2}^{2}$; 
+$\tau_{t}=m+\theta\sum_{k=1}^{K} \varphi_{k}\left(\omega_{1},\omega_{2}\right)RV_{t-k}$ 
+在 $i=1$到 $i=22$ 期间是不变的。
+如果时滚动窗口,**********************
+
+logtau:指是否对GARCH-MIDAS的长期波动部分取对数，默认是FALSE.
+
+beta2para:表示是否用两参数beta函数多项式作为作为MIDAS部分的权重函数，默认是单参
+数beta函数。
+
+初始值: $\mu_0$ 是 $\mu_0$ 的初始值,默认是样本观测值的均值；$\alpha_0$ 是
+ $\alpha$ 的初始值,默认是0.05;$\beta_0$ 是
+ $\beta$ 的初始值,默认是0.9;$\theta_0$ 是GARCH-MIDAS的长期成分部分MIDAS回归系数
+ $\theta$ 的初始值,默认是0.1;W0是权重的初始值,默认是5;m0是GARCH-MIDAS的MIDAS回归
+ 中的截距项初始值,默认是0.01.
+
+___
+
+optimoptions('fmincon','Display','Iter'),迭代90次，RMSE=4.995e+00
+
+Method: Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 10929
+
+Logarithmic  likelihood:     -14587.1
+
+Akaike   info criterion:      29186.2
+
+Bayesian info criterion:      29230.3
+
+|param   |  Coeff   |   StdErr |   tStat   |   Prob  |
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|    mu  |  0.079584 |   0.0074627 |   10.664 |   0   |
+|    alpha |    0.13148 |   0.0046933  |  28.015  |  0   |
+|    beta |  0.79475 |   0.0094636 |   83.979 |   0   |
+|   theta  |   0.19544   | 0.0049567  |   39.43|0|
+|    w     |     8.8003|0.98234 |   8.9584 |   0   |
+|    m      |   0.48909   |  0.024175  |  20.231 |   0|
+
+___
+
+optimoptions('fmincon','Display','Iter'),迭代13次，RMSE=4.796e+00
+
+Method: Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 10929
+
+Logarithmic  likelihood:-15456
+
+Akaike   info criterion:30924
+
+Bayesian info criterion:30968.2
+
+|param   |  Coeff   |   StdErr |   tStat   |   Prob  |
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|   mu   |    -0.015407|    0.0048818 | -3.156 |   0.0015998|
+|   alpha |  0.074912  |  0.0021082 |    35.533 |   0|
+|    beta   |    0.92509  |  0.0017662  |   523.77   |     0|
+|   theta  |   0.088862 | 0.019561 |  4.5428 |   5.5514e-06|
+|   w   |   4.9953   |    1.0391   |  4.8072 |1.5312e-06|
+|   m   |    0.010006 |     0.43771 |   0.02286 |   0.98176|
+
+___
+
+optimoptions('fmincon','Display','Iter'),迭代22次
+
+RMSE of one-step variance forecast (period 1 to 11649): 4.995e+00.
+
+RMSE of one-step variance forecast (period 1 to 11649): 4.796e+00.
+
+Method: Two-Step Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 4449
+
+Logarithmic  likelihood:     -12698.8
+
+Akaike   info criterion:      25403.6
+
+Bayesian info criterion:      25425.7
+
+|   param|      Coeff|       StdErr|      tStat|   Prob|
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|    a |   0.045283 |   0.0047421 |    9.549  |       0|
+|    b   |   0.9084    | 0.012706    |71.495      |       0|
+|   w   |    13.29 |      2.8979 |   4.5862 |   4.5147e-06 |
+
+___
+
+optimoptions('fmincon','Algorithm','active-set'),RMSE=4.995e+00.
+
+Method: Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 10929
+
+Logarithmic  likelihood:     -14587.1
+
+Akaike   info criterion:      29186.2
+
+Bayesian info criterion:      29230.3
+
+|   param|      Coeff|       StdErr|      tStat|   Prob|
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|   mu  |   0.079584|    0.0074627  |  10.664  |  0   |
+|    alpha    | 0.13148 |   0.0046931  |  28.016  |  0   |
+|    beta   |   0.79475 |    0.009463  |  83.985  |  0  | 
+|    theta  |   0.19544  |  0.0049569 |   39.429  |  0   |
+|   w      |    8.7989  |    0.98221  |  8.9583  |  0   |
+|   m     |    0.48909  |   0.024176  |  20.231  |  0   |
+
+___
+
+optimoptions('fmincon','Algorithm','active-set')
+Method: Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 10929
+
+Logarithmic  likelihood:-15239.8
+
+Akaike   info criterion:30491.5
+
+Bayesian info criterion:30535.7
+
+|   param|      Coeff|       StdErr|      tStat|   Prob|
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|    mu  |  0.00083499  |  0.0069878  |  0.11949 |   0.90489|
+|   alpha  | 0.052816  |  0.0025051   |  21.083       |   0|
+|    beta    |    0.92993  |   0.004143  |   224.46   |   0|
+|   theta |  0.22413   | 0.0058754 |    38.146    |      0|
+|    w     | 2.4919  |    0.50374   |  4.9467  |    0|
+|    m         |  0.29477   |  0.037978   |  7.7617    |      0|
+
+___
+
+optimoptions('fmincon','Algorithm','active-set'),RMSE=4.758e+00.
+
+Method: Two-Step Maximum likelihood
+
+Sample size: 11649
+
+Adjusted sample size: 4449
+
+Logarithmic  likelihood:     -12481.2
+
+Akaike   info criterion:      24968.4
+
+Bayesian info criterion:      24990.5
+
+|   param|      Coeff|       StdErr|      tStat|   Prob|
+| :----- | :--------: | :---------: | :--------: |:--------: |
+|    a  |  0.043116  |  0.0048384  |  8.9113   | 0|
+|    b  |   0.91886   |  0.011604  |  79.182|0|
+|   w |  10.488  |  2.4513   | 4.2787  |  1.8806e-05|
+
+RMSE of one-step variance forecast (period 1 to 11649): 4.995e+00.
+
+RMSE of one-step variance forecast (period 1 to 11649): 4.758e+00.
+
+___
+
