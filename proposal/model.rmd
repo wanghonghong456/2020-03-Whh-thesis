@@ -301,9 +301,11 @@ j}\right) X_{\tau-l}$$
 
 ## GARCH-MIDAS
 
+___
+
 ```{r}
 library(mfGARCH)
-head(df_financial)
+#head(df_financial)
 #rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
 head(df_mfgarch)
 #vix频率是日，NAI,dhousing，dinpro是月
@@ -333,7 +335,7 @@ x.two = "dindpro", K.two = 12, low.freq.two = "year_month", weighting.two =
 
 ## DCC-MIDAS
 
-### 理论介绍
+### midas理论介绍
 
 这个包解决这样一类回归问题
 $$y_{t}-\alpha_{1} y_{t-1}-\cdots-\alpha_{p} y_{t-p}=\sum_{i=0}^{k}
@@ -477,6 +479,7 @@ ___
 转换为（k + 1）低频序列的观测矩阵,由最大滞后阶数k和频率比m定义的（与k个滞后同
 时）。
 
+### midas实现
 
 ```{r warning=F}
 library(midasr)
@@ -501,10 +504,9 @@ ___
 #对于参数无限制的情况，用OLS估计，
 eq_u <- lm(y ~ trend + mls(x, k = 0:7, m = 4) + mls(z, k = 0:16, m = 12))
 eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL)
-summary(eq_u)
 #使用指数Almon滞后多项式约束参数，则用NLS估计
 eq_r <- midas_r(y ~ trend + mls(x, 0:7, 4, nealmon) + mls(z, 0:16, 12,nealmon), start = list(x = c(1, -0.5), z = c(2, 0.5, -0.1)))
-summary(eq_r)
+#summary(eq_r)
 ```
 ___
 
@@ -517,3 +519,4 @@ ___
 eq_xy=midas_r(y~mls(y,1:6,1,nealmon)+mls(x,0:7,4,nealmon),start=list(y=c(1,-0.5),x=c(1,-0.5)))
 summary(eq_xy)
 ```
+___
