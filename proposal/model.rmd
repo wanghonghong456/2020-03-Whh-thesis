@@ -17,19 +17,26 @@ classoption: "aspectratio=1610"
 ---
 
 **todo**
+
 - 滞后阶数如何选择，根据现有文献有的直接给定，有的根据AIC,BIC确定
 - 模型估计再详细一点，写出式[@eq:garch-midas-llf]中具体的待估参数有哪些
 - RV的滚动窗口，参考[@Engle2013]
 
 
 # 模型理论
+
 ## GARCH-MIDAS
+
+___
+
 在有关金融市场波动率的研究中，若想要探究经济因素对金融市场的影响，则传统的GARCH
 类模型略显不足，它只能处理同频数据。Ghysels等引入了混频抽样模型(Mixed Data
 Sampling),简称MIDAS,后由Engel等对其进行扩展，将其引入GARCH,形成GARCH-MIDAS模型,
 该模型将波动率分为短期波动率和长期波动率，长期波动率的设定中可以引入与研究对象不
 同频率的外生变量，这极大地促进了金融市场混频数据的研究[@Engle2013]。为了方便
 GARCH-MIDAS模型的表述，下面首先对传统的基于同频数据的GARCH(1,1)作简单介绍。
+
+___
 
 $$\left\{ {\begin{array}{l}{{r_t} = \mu_t  + {\varepsilon _t}}\\{{\varepsilon
 _t} = \sqrt {{h_t}} {e_t}}\\{{h_t} =
@@ -40,6 +47,7 @@ _t} = \sqrt {{h_t}} {e_t}}\\{{h_t} =
 差相等的独立同分布随机变量序列。第一个方程为均值方程，用来描述收益率序列条件均值
 的变化过程，第三个方程为方差方程，用来描述收益率序列条件方差的变化过程。
 
+___
 
 现对GARCH-MIDAS模型进行介绍。
 
@@ -68,9 +76,12 @@ $\frac{\varepsilon_{i-1,t}^{2}}{\tau_{t}}$ 。另外，
 
 $$g_{i, t}=(1-\alpha-\gamma / 2-\beta)+\left(\alpha+\gamma
 \mathbb{1}_{\left\{\varepsilon_{i-1, t}<0\right\}}\right)
-\frac{\varepsilon_{i-1, t}^{2}}{\tau_{t}}+\beta g_{i-1, t}$$ {#eq:gjr-garch-midas}
+\frac{\varepsilon_{i-1, t}^{2}}{\tau_{t}}+\beta g_{i-1, t}$$
+{#eq:gjr-garch-midas}
 
-其中$\mathbb{1}_{\left\{\varepsilon_{i-1, t}<0\right\}}$是示性函数，当()内容成立
+___
+
+其中 $\mathbb{1}_{\left\{\varepsilon_{i-1, t}<0\right\}}$ 是示性函数，当()内容成立
 时,取值为1，否则为0. $\gamma$ 是非对称杠杆系数。
 下面对GJR-GARCH中涉及 $e_{i,t}$ 和短期波动成分中参数的假设作出介绍。
 
@@ -98,6 +109,8 @@ $$\tau_t=f(X_T,X_{T-1},\cdots,X_{t-K})$$ {#eq:garch-midas-t}
 
 $$\tau_t=m+\pi_1X_{T-1}+\cdots,\pi_KX_{t-K}$$ {#eq:garch-midas-t1}
 
+___
+
 式 [@eq:garch-midas-t1] 中,为了保证$f(\cdot)>0$,需满足对于所有的$l=1,\cdots,K$,$m>0,\pi_l\geq0$,且
 $X_t$也是非负变量。如果$X_t$不是非负变量，那么可以选择指数形式:
 
@@ -115,6 +128,8 @@ $$VR=\frac{Var(log(\tau_t))}{Var(log(\tau_tg_t))}$$ {#eq:garch-midas-vr}
 至此,式[@eq:garch-midas1],[@eq:garch-midas2],[@eq:garch-midas-g],[@eq:garch-midas-t]
 构成GARCH-MIDAS模型。其中，短期波动成分和长期波动成分都有多种设定。
 
+___
+
 根据现有文献，对长期波动成分的设定主要有以下两种形式。(要列出具体的参考文献)
 一种是参考Merton(1980),Schewert(1989)等人的做法，用一定时间区间(一个月或一个季度)
 的可实现波动率来衡量长期波动,如月度已实现波动率$RV_t$。大多学者通过MIDAS回归来平
@@ -131,7 +146,11 @@ $$E_{t-1}\left[\left(r_{i, t}-\mu\right)^{2}\right]=\tau_{t} E_{t-1}\left(g_{i,
 t}\right)=\tau_{t}$$ {#eq:mean_garch-midas-long}
 
 式[@eq:mean_garch-midas-long]中短期波动成分的均值 $E_{t-1}(g_{i,t})$ 等于其无条件期望，即
-$E_{t-1}(g_{i,t})=1$.为了完成此模型设定，还需对长期波动成分,式[@eq:rv]的权重系数进行说明:
+$E_{t-1}(g_{i,t})=1$.
+
+___
+
+为了完成此模型设定，还需对长期波动成分,式[@eq:rv]的权重系数进行说明:
 
 $$\varphi_{k}(\omega)=\left\{\begin{array}{ll}
 \frac{(k / K)^{\omega_{1}-1}(1-k / K)^{\omega_{2}-1}}{\sum_{j=1}^{K}(j / K)^
@@ -142,6 +161,8 @@ $$\varphi_{k}(\omega)=\left\{\begin{array}{ll}
 所有权重系数的和为1。式中，基于Beta函数的Beta滞后非常灵活，可以用于多种滞后结
 构，既能表示权重系数的单调增或单调减，也能表示多峰型的权重方案[@Engle2013]。
 
+___
+
 另外一种是在长期波动成分中包含有多个解释变量。常以已实现波动率和其他同频变量的线
 性组合为主,如夏婷用同时包含已实现波动率和工业增长率或通货膨胀率等宏观经济变量的
 长期波动成分来刻画我国股市的波动率[@夏婷2018],具体如下:
@@ -150,7 +171,7 @@ $$\tau_{t}=m+\theta_{1} \sum_{k=1}^{K} \varphi_{1k}\left(\omega_{11}, \omega_{12
 +\theta_{2} \sum_{k=1}^{K} \varphi_{2k}\left(\omega_{21}, \omega_{22}\right) X_{t-k}
 $$
 
-最后根据收益率的分布形式和模型设定，用极大既然法进行估计，极大似然函数为：
+最后根据收益率的分布形式和模型设定，用极大似然法进行估计，极大似然函数为：
 
 $$LLF=-\frac{1}{2} \sum_{t=1}^{T}\left[\log g_{t}(\Phi)
 \tau_{t}(\Phi)+\frac{\left(r_{t}-\mu_t\right)^{2}}{g_{t}(\Phi)
@@ -174,12 +195,15 @@ $\mu$ 是无条件方差向量，$H_t$是条件方差矩阵，$D_t$是对角矩�
 $R_{t}=E_{t-1}\left[\xi_{t} \xi_{t}^{\prime}\right]$ , $\xi_t=D_t^{-1}(\mathbf{r}_{t}-\mu)$.
 因此 $\mathbf{r}_{t}=\mu+H_t^{1/2}\xi_t$ , $\xi_t\sim_{\mathrm{i} . \mathrm{i} . \mathrm{d} .}N(0,I_n)$
 
+___
+
 具体来说，对于每个资产 $i=1,\cdots,n$ ,单变量收益率的GARCH-MIDAS过程为:
 
 $$r_{i,t}=\mu_i+\sqrt {m_{i,\tau}\cdot g_{i,t}}\xi_{i,t},\forall t=\tau
 N_{v}^{i}, \ldots,(\tau+1) N_{v}^{i}$$
 
-其中，$g_{i,t}$遵循GARCH(1,1)过程:
+其中，$$\tau$ 表示第 $\tau$ 个周期，因此 $t$ 从 $\tau N_v^i$ 开始，
+$g_{i,t}$遵循GARCH(1,1)过程:
 
 $$g_{i,t}=(1-\alpha_i-\beta_i)+\alpha_i\frac{(r_{i,t-1}-\mu_i)^2}{m_{i,\tau}}+\beta_ig_{i,t-1}$$
 
@@ -187,6 +211,8 @@ $m_{i,\tau}$是一定时间段内已实现波动率$K_v^i$阶滞后变量的加�
 
 $$m_{i, \tau}=\bar{m}_{i}+\theta_{i} \sum_{l=1}^{K_{\nu}^{i}}
 \varphi_{l}\left(\omega_{v}^{i}\right) R V_{i, \tau-l}$$
+
+___
 
 其中，$R V_{i, \tau}=\sum_{j=(\tau-1) N_{v}^{i}+1}^{\tau N_{v}^{i}}\left(r_{i,
 j}\right)^{2}$，$N_{v}^{i}$可以是一个月或一个季度。权重系数$\varphi$通过Beta函数
@@ -199,6 +225,8 @@ $$\varphi_{l}\left(\omega_{v}^{i}\right)=\frac{\left(1-\frac{1}{K_{i}^{i}}\right
 式[@eq:weight2]的权重函数形式与式[@eq:weight]中的Beta函数是同一类型，当
 [@eq:weight]中的Beta函数满足 $\omega_1=\omega_2$ 时,式[@eq:weight]就变为式
 [@eq:weight2]。
+
+___
 
 在长期波动成分，$m_{i,\tau}$既可以保持局部不变，又可以基于局部移动窗口来表示。但
 Engle(2006)等人发现这两者之间的差异可以忽略不计。考虑到局部移动窗口有更大的适用
@@ -215,6 +243,9 @@ $$c_{i, j, t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j, k}}{\sqrt{\sum
 
 $$\rho_{i, j, t}=\frac{q_{i, j, t}}{\sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}}$$ {#eq:dcc-midas-q}
 
+
+___
+
 其中，$q_{i,j,t}$ 是资产 $i$ 和资产 $j$ 的短期相关系数,$\bar{\rho_{i,j,t}}$ 是长
 期相关系数。可以看出，短期相关系数和长期相关系数都是GARCH-MIDAS部分标准残差序列
 的函数。式[@eq:dcc-midas] 可以重写成:
@@ -226,6 +257,9 @@ $$q_{i, j, t}-\bar{\rho}_{i, j, t}=a\left(\xi_{i, t-1} \xi_{j, t-1}-\bar{\rho}_{
 动。短期波动成分基于每日的回报率，它围绕由一定时间段内(一个月或一个季度)的已实现
 波动率驱动的长期波动成分上下浮动。并且同样可以将长期相关系数与宏观变量联系起来。
 
+
+___
+
 $$\begin{aligned}
 QL(\Phi, \Xi) &=Q L_{1}(\Phi)+Q L_{2}(\Phi, \Xi) \\
 & \equiv-\sum_{t=1}^{T}\left(n \log (2 \pi)+2 \log \left|D_{t}\right|+r_{t}^{\prime} D_{t}^{-2} r_{t}\right)-\sum_{t=1}^{T}\left(\log \left|R_{t}\right|+\xi_{t}^{\prime} R_{t}^{-1} \xi_{t}+\xi_{t}^{\prime} \xi_{t}\right)
@@ -234,7 +268,8 @@ QL(\Phi, \Xi) &=Q L_{1}(\Phi)+Q L_{2}(\Phi, \Xi) \\
 DCC-MIDAS的估计采用两步法，$\Phi$ 中包含了GARCH--MIDAS部分的待估参数
 $(\mu,\alpha,\beta,\omega,m,\theta)$ ,$\Xi$ 包含了DCC-MIDAS中的待估参数
 $(a,b,\omega_r)$ 。具体计算时，第一步估计 $\Phi$ ，然后再利用所估计的系数计算标
-准残差序列，得到标准残差序列 $\xi$ ，估计参数 $\Xi$ 。
+准残差序列，得到标准残差序列 $\xi$ ，估计参数 $\Xi$ 。重点是 $\omega_{i,j}$ ,
+$k_{i,j}$ 以及 $N_c^{i,j}$ 如何选择。
 
 ### 多变量DCC-MIDAS
 
@@ -246,6 +281,8 @@ $$m_{i, \tau}=\bar{m}_{i}+\theta_{i,1} \sum_{l=1}^{K_{\nu}^{i}}
 \varphi_{l}\left(\omega_{1v}^{i}\right) RV_{i, \tau-l}+\theta_{i, 2}\sum_{l=1}^{K_{\nu}^{i}}
 \varphi_{l}\left(\omega_{2v}^{i}\right)X_{\tau-l}$$
 
+___
+
 然后对 $\bar{\rho}_{i,j,t}$ 作 Fisher’s z 变换，即:
 
 $$\bar{\rho_{i,j,t}}=\frac{\exp \left(2 z_{i,j,t}\right)-1}{\exp \left(2
@@ -256,19 +293,23 @@ z_{i,j,t}\right)+1}$$
 $$z_{i,j,t}=m_{c}+\theta_{c, 1} \sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r1}^{i
 j}\right) c_{i, j, t-l}+\theta_{c,
 2} \sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r2}^{i
-j}\right) X_{t-l}$$
+j}\right) X_{\tau-l}$$
 
 这样就有多个变量来解释长期相关系数的动态变化。
 
 # 模型实现
+
 ## GARCH-MIDAS
-```{r,eval=F}
+
+```{r}
 library(mfGARCH)
 head(df_financial)
 #rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
 head(df_mfgarch)
 #vix频率是日，NAI,dhousing，dinpro是月
 ```
+___
+
 ```{r,eval=F}
 model1=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52)
 #默认短期波动是GJR-GARCH(1,1),权重系数是$\omega_1=\omega_2$
@@ -291,10 +332,12 @@ x.two = "dindpro", K.two = 12, low.freq.two = "year_month", weighting.two =
 ```
 
 ## DCC-MIDAS
+
 ### 理论介绍
+
 这个包解决这样一类回归问题
 $$y_{t}-\alpha_{1} y_{t-1}-\cdots-\alpha_{p} y_{t-p}=\sum_{i=0}^{k}
- \sum_{j=0}^{l_{i}} \beta_{j}^{(i)} x_{t m_{i}-j}^{(i)}+\varepsilon_{t}$$ #{eq:midas1}
+ \sum_{j=0}^{l_{i}} \beta_{j}^{(i)} x_{t m_{i}-j}^{(i)}+\varepsilon_{t}$$ {#eq:midas1}
 
 其中，要求:
 
@@ -312,6 +355,7 @@ $$\beta_{j}^{(i)}=f_{i}\left(\gamma_{i}, j\right), j=0, \ldots, l_{i},
 这样可以减少待估参数，原来有$d=p+\sum_{i=0}^{k}l_i$,现在待估参数有
 $q=\sum_{i=0}^{h_i}q_i$
 
+___
 
 假设$y_t$是季度数据，现用月度数据$x_t$来解释$y_t$，对于每个季度有3个月，并且当前
 和上一季度的月度数据具有解释力。也就是说在当前季度t，用t季度观察到的 
@@ -343,6 +387,8 @@ x_{3 n} & \dots & x_{3 n-5}
 
 通过用矩阵表示法编写模型，将高频变量 $x_t$ 转换为低频矢量$(\left(x_{3 t},
 \ldots, x_{3 t-5}\right))^T$.这种变换叫频率对其，要求$$的观测数正好是$3n$
+
+___
 
 如果还有一个以周为频率的变量，假设一个月有4周，1个季度有12周，则有
 
@@ -379,7 +425,10 @@ z_{12 n} & \dots & z_{12 n-23}
 也就是说，通过频率转换，将高频数据$x_t$转换为低频矢量
 $\left(x_{t m_{i}}^{(i)},x_{t m_{i}-1}^{(i)}, \ldots, x_{t m_{i}-l}^{(i)}\right)^{\top}$
  
+___
+
 式[@eq:midas1]的矩阵表达为:
+
 $$\left[\begin{array}{c}
 y_{l} \\
 \vdots \\
@@ -402,6 +451,8 @@ y_{n-1} & \dots & y_{n-p}
 \varepsilon_{n}
 \end{array}\right]$$
 
+___
+
 其中
 
 $$\boldsymbol{X}^{(i)}:=\left[\begin{array}{cccc}
@@ -416,6 +467,8 @@ x_{n m_{i}}^{(i)} & x_{n m_{i}-1}^{(i)} & \dots & x_{n m_{i}-l}^{(i)}
 
 注意$u$是最小的整数，要求$u m_{i}-l>0$ 且 $u>p$
 
+___
+
 对于MIDAS模型，需要注意两点，一点是函数约束的合理选择，另一点是最大滞后阶数的选
 择。解决这两个问题的一种方法是使用某种信息准则，使用样本内或样本外的精度度量，根
 据参数限制和滞后阶数选择最佳模型。
@@ -425,11 +478,13 @@ x_{n m_{i}}^{(i)} & x_{n m_{i}-1}^{(i)} & \dots & x_{n m_{i}-l}^{(i)}
 时）。
 
 
-```{r}
+```{r warning=F}
 library(midasr)
 x=1:12
 fmls(x,k=2,m=3)#数据处理
 ```
+___
+
 ```{r}
 set.seed(1001)
 n=250
@@ -440,21 +495,25 @@ fn_x <- nealmon(p = c(1, -0.5), d = 8)
 fn_z <- nealmon(p = c(2, 0.5, -0.1), d = 17)
 y <- 2 + 0.1 * trend + mls(x, 0:7, 4) %*% fn_x + mls(z, 0:16, 12) %*% fn_z + rnorm(n)#数据模拟
 ```
+___
 
-```{r}
+```{r warning=F}
 #对于参数无限制的情况，用OLS估计，
 eq_u <- lm(y ~ trend + mls(x, k = 0:7, m = 4) + mls(z, k = 0:16, m = 12))
-eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),
-+ start = NULL)
+eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL)
 summary(eq_u)
 #使用指数Almon滞后多项式约束参数，则用NLS估计
 eq_r <- midas_r(y ~ trend + mls(x, 0:7, 4, nealmon) + mls(z, 0:16, 12,nealmon), start = list(x = c(1, -0.5), z = c(2, 0.5, -0.1)))
 summary(eq_r)
 ```
+___
+
 $$y_t=c+\sum_{j=1}^6\alpha_jy_{t-j}+\sum_{j=0}^7\beta_jx_{4j-1}+\varepsilon_t$$
 
+___
+
+```{r warning=F}
 #含有y滞后项的情况
-```{r}
 eq_xy=midas_r(y~mls(y,1:6,1,nealmon)+mls(x,0:7,4,nealmon),start=list(y=c(1,-0.5),x=c(1,-0.5)))
 summary(eq_xy)
 ```
