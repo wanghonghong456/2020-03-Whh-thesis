@@ -338,7 +338,7 @@ ___
 
 ```{r}
 library(mfGARCH)
-#head(df_financial)
+head(df_financial)
 #rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
 head(df_mfgarch)
 #vix频率是日，NAI,dhousing，dinpro是月
@@ -347,7 +347,8 @@ ___
 
 ```{r,eval=F}
 model1=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52)
-#默认短期波动是GJR-GARCH(1,1),权重系数是$\omega_1=\omega_2$
+#默认短期波动是GJR-GARCH(1,1),权重系数是 $\omega_1=\omega_2$ 
+model1
 plot_weighting_scheme(model1)
 #权重系数呈指数下降
 str(model1)
@@ -757,3 +758,27 @@ RMSE of one-step variance forecast (period 1 to 11649): 4.758e+00.
 
 ___
 
+```{r}
+library(xlsx)
+library(mfGARCH)
+dgs10=read.xlsx('D:/matlab/toolbox/MIDASv2.3/DGS10.xls',1)[15:11663,]
+NASDAQCOM=read.xlsx('D:/matlab/toolbox/MIDASv2.3/NASDAQCOM.xls',1)
+colnames(dgs10)=c('date','return')
+model3=fit_mfgarch(data=dgs10,y='return')
+
+dgs10=xlsread('DGS10.xls','B2:B11650');
+NASDAQCOM=xlsread('NASDAQCOM.xls','B2:B11650');
+[estParams,EstParamCov,Variance,LongRunVar] = GarchMidas(dgs10,'Period',20,'NumLags',36);
+[estParams0,EstParamCov0,Variance0,LongRunVar0] = GarchMidas(NASDAQCOM,'Period',20,'NumLags',36);
+
+a=sqrt(Variance);
+aresid = (dgs10-0.045348197906591)./a;
+```
+```{r}
+install.packages('qle')
+```
+
+
+xlswrite('shortrunvar.xls',shortrunvar);
+
+### 拟极大似然法
