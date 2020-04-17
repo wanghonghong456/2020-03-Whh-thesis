@@ -338,7 +338,11 @@ ___
 
 ```{r}
 library(mfGARCH)
-head(df_financial)
+help(package="mfGARCH")
+library(devtools)
+fit_mfgarch
+help(llh_simple)
+head(fit_mfgarch)
 #rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
 head(df_mfgarch)
 #vix频率是日，NAI,dhousing，dinpro是月
@@ -758,7 +762,7 @@ RMSE of one-step variance forecast (period 1 to 11649): 4.758e+00.
 
 ___
 
-```{r}
+```
 library(xlsx)
 library(mfGARCH)
 dgs10=read.xlsx('D:/matlab/toolbox/MIDASv2.3/DGS10.xls',1)[15:11663,]
@@ -773,9 +777,7 @@ NASDAQCOM=xlsread('NASDAQCOM.xls','B2:B11650');
 
 a=sqrt(Variance);
 aresid = (dgs10-0.045348197906591)./a;
-```
-```{r}
-install.packages('qle')
+
 ```
 
 
