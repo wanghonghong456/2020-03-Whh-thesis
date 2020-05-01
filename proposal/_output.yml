@@ -6,6 +6,8 @@ bookdown::html_document2:
   number_sections: true
   pandoc_args:
   - --filter
+  - mermaid-filter.cmd
+  - --filter
   - pandoc-crossref
   - -M
   - eqnPrefix=
@@ -19,6 +21,8 @@ bookdown::pdf_document2:
   - --listing
   - --filter
   - pandoc-crossref
+  - --filter
+  - mermaid-filter.cmd
   template: ./style/default-1.17.0.2.tex
   toc: false
   citation_package: natbib
@@ -28,6 +32,8 @@ bookdown::word_document2:
   fig_caption: true
   md_extensions: +east_asian_line_breaks
   pandoc_args:
+  - --filter
+  - mermaid-filter.cmd
   - --filter
   - pandoc-crossref
   reference_docx: ./style/word-styles-02.docx
@@ -42,6 +48,8 @@ beamer_presentation:
   - --listing
   - --filter
   - pandoc-crossref
+  - --filter
+  - mermaid-filter.cmd
   slide_level: 3
   template: ./style/beamer-template.tex
   citation_package: natbib
@@ -68,5 +76,5 @@ bookdown::pdf_book:
   md_extensions: +east_asian_line_breaks
   template: ./style/bookdown-pdf-template.tex
   citation_package: natbib
-  pandoc_args: ["--top-level-division=chapter", "--bibliography=Bibfile", "--listing", "--filter", "pandoc-crossref"]
+  pandoc_args: ["--filter", "mermaid-filter.cmd", "--top-level-division=chapter", "--bibliography=Bibfile", "--listing", "--filter", "pandoc-crossref"]
 
