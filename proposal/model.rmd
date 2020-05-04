@@ -51,7 +51,7 @@ ___
 
 现对GARCH-MIDAS模型进行介绍。
 
-$$r_{i,t}=\mu_t+\varepsilon_{i,t}$$ {#eq:garch-midas1}
+$$r_{i,t}=\mu+\varepsilon_{i,t}$$ {#eq:garch-midas1}
 
 $$\frac{\varepsilon_{i,t}}{\sqrt{\tau_t}}=\sqrt{g_{i,t}}e_{i,t}$$ {#eq:garch-midas2}
 
@@ -249,7 +249,7 @@ $$\rho_{i, j, t}=\frac{q_{i, j, t}}{\sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}}$$ {#e
 
 ___
 
-其中，$q_{i,j,t}$ 是资产 $i$ 和资产 $j$ 的短期相关系数,$\bar{\rho}_{i,j,t}$ 是长
+其中，$q_{i,j,t}$ 是资产 $i$ 和资产 $j$ 的短期相关系数,${\rho}_{i,j,t}$ 是长
 期相关系数。可以看出，短期相关系数和长期相关系数都是GARCH-MIDAS部分标准残差序列
 的函数。式[@eq:dcc-midas] 可以重写成:
 
@@ -330,50 +330,8 @@ j}\right) X_{\tau-l}$$
 
 这样就有多个变量来解释长期相关系数的动态变化。
 
-# 模型实现
 
-## GARCH-MIDAS
-
-___
-
-```{r}
-library(mfGARCH)
-help(package="mfGARCH")
-library(devtools)
-fit_mfgarch
-help(llh_simple)
-head(fit_mfgarch)
-#rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
-head(df_mfgarch)
-#vix频率是日，NAI,dhousing，dinpro是月
-```
-___
-
-```{r,eval=F}
-model1=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52)
-#默认短期波动是GJR-GARCH(1,1),权重系数是 $\omega_1=\omega_2$ 
-model1
-plot_weighting_scheme(model1)
-#权重系数呈指数下降
-str(model1)
-plot(model1$g,type='l',ylim=c(0,40))
-plot(model1$tau,type='p')
-plot(model1$est.weighting)
-var(log(model1$tau))
-summary(log(model1$tau))
-var(log(model1$tau*model1$g)[254:11306])/var(log(model1$tau)[254:11306])
-var(log(model1$tau)[254:11306])/var(log(model1$tau*model1$g)[254:11306])
-str(model1)
-model2=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52,weighting='beta.unrestricted')
-model3=fit_mfgarch(data = df_mfgarch, y = "return", x = "nfci", low.freq = "year_week", K = 52,
-x.two = "dindpro", K.two = 12, low.freq.two = "year_month", weighting.two =
-"beta.restricted")
-#具有两个不同频率的变量来描述长期波动
-```
-
-## DCC-MIDAS
-
-### midas理论介绍
+## midas理论介绍
 
 这个包解决这样一类回归问题
 $$y_{t}-\alpha_{1} y_{t-1}-\cdots-\alpha_{p} y_{t-p}=\sum_{i=0}^{k}
@@ -400,7 +358,7 @@ ___
 假设$y_t$是季度数据，现用月度数据$x_t$来解释$y_t$，对于每个季度有3个月，并且当前
 和上一季度的月度数据具有解释力。也就是说在当前季度t，用t季度观察到的 
 $x_{3 t},x_{3 t-1}, x_{3 t-2}$，以及变量 $y_{t-1}$ 和
- $x_{3 {t-1}}, x_{3 {t-1}-1}, x_{3 {t-1}-2}$ 来对$y_{t}$ 建模。
+ $x_{3 (t-1)}, x_{3 (3-1)-1}, x_{3 (3-1)-2}$ 来对$y_{t}$ 建模。
 公式[@eq:midas1] 可以写成矩阵形式
 
 $$\left[\begin{array}{c}
@@ -514,52 +472,163 @@ ___
 据参数限制和滞后阶数选择最佳模型。
 
 函数fmls（x，k，m）完全执行公式[@eq:midas-x]中定义的变换，将给定（潜在）高频序列的观测向量x
-转换为（k + 1）低频序列的观测矩阵,由最大滞后阶数k和频率比m定义的（与k个滞后同
+转换为包含（k + 1）个低频序列的观测矩阵,由最大滞后阶数k和频率比m定义的（与k个滞后同
 时）。
 
-### midas实现
+___
 
-```{r warning=F}
-library(midasr)
-x=1:12
-fmls(x,k=2,m=3)#数据处理
-```
+$$\begin{aligned} \beta(L)^{\top} \boldsymbol{x}_{t, 0} &=\sum_{i=0}^{k}
+\sum_{j=0}^{l} \beta_{j}^{(i)} x_{t m_{i}-j}^{(i)} \\ &=\sum_{i=0}^{k}
+\sum_{r=0}^{q} \lambda_{r}^{(i)} \tilde{x}_{t-r}^{(i)} \end{aligned}$$
+
+$$\tilde{x}_{t-r}^{(i)}:=x_{t-r}^{(i)}\left(\delta_{i, r}\right)=\sum_{s=1}^{m_{i}} w_{r}^{(i)}\left(\delta_{i, r} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)}$$
+
+权重系数
+
+$$\forall i, r \quad w_{r}^{(i)}\left(\boldsymbol{\delta}_{i, r} ;
+s\right)=\frac{\psi_{r}^{(i)}\left(\boldsymbol{\delta}_{i, r} ;
+s\right)}{\sum_{j=1}^{m_{i}} \psi_{r}^{(i)}\left(\boldsymbol{\delta}_{i, r} ;
+j\right)}, s=1, \ldots, m_{i}$$
+
+$$\tau_{t}=m+\theta \sum_{k=1}^{K} \varphi_{k}\left(\omega_{1}, \omega_{2}\right) RV_{t}$$
+
+$$RV_{t}=\sum_{i=1}^{N_{t}} r_{i, t}^{2}$$
+___
+
+将高频数据通过设置权重系数转换为低频数据，$\lambda_{r}^{(i)}\tilde{x}_{t-r}^{(i)}$
+相当于GARCH-MIDAS模型中长期波动部分
+$\varphi_{1 k}\left(\omega_{11}, \omega_{12}\right) R V_{t-k}$，不过MIDAS中
+对于$\tilde{x}_{t-r}^{(i)}$的计算有各类权重系数，自身的系数$\lambda_{r}^{(i)}$不
+做特殊设置；GARCH-MIDAS刚好相反，$RV_{t}$ 的计算通过简单求和获得，而自身的系数是
+带有参数的权重函数。
+
+___
+
+$$
+\begin{aligned} \mathrm{E}\left(\alpha(B) y_{l} | \boldsymbol{y}_{t,
+1},\left\{\boldsymbol{x}_{l, 0}^{(i)}\right\}_{j=0}^{l}\right) &=\beta(L)^{\top}
+\boldsymbol{x}_{l, 0} \\
+&=\sum_{i=0}^{k} \sum_{r=0}^{q} \lambda_{r}^{(i)} \tilde{x}_{l-r}^{(i)} \\
+&=\sum_{i=0}^{k} \sum_{r=0}^{q} \lambda_{r}^{(i)} \sum_{s=1}^{m_{i}}
+w_{r}^{(i)}\left(\boldsymbol{\delta}_{i, r} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)}
+\\ 
+&=\sum_{i=0}^{k} \sum_{r=0}^{q} \lambda_{r}^{(i)} \sum_{s=1}^{m_{i}}
+w_{r}\left(\boldsymbol{\delta}_{i, r} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)} \\ 
+&=\sum_{i=0}^{k} \sum_{r=0}^{q} \lambda_{r}^{(i)} \sum_{s=1}^{m_{i}}
+w\left(\boldsymbol{\delta}_{i, r} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)} \\ 
+&=\sum_{i=0}^{k} \sum_{r=0}^{q} \lambda_{r}^{(i)} \sum_{s=1}^{m_{i}}
+w\left(\boldsymbol{\delta}_{i} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)} \\ 
+& \sum_{i=0}^{k} \lambda^{(i)} \sum_{r=0}^{q} \sum_{s=1}^{m_{i}} w\left(\delta_{i} ; s\right) x_{(t-1-r) m_{i}+s}^{(i)}
+\end{aligned}
+$$
+
+其中$j=r m_{i}+s_{i}$
+
+## GARCH-MIDAS、DCC-MIDAS、DCC-GARCH
+**GARCH-MIDAS**
+$r_{i, t}=\mu+\varepsilon_{i, t}$,
+
+$\frac{\varepsilon_{i, t}}{\sqrt{\tau_{t}}}=\sqrt{g_{i, t}} e_{i, t}$,
+
+$g_{i,t}=(1-\alpha_i-\beta_i)+\alpha_i\frac{(r_{i,t-1}-\mu_i)^2}{m_{i,\tau}}+\beta_ig_{i,t-1}$,
+
+$\tau_{t}=m+\theta \sum_{k=1}^{K} \varphi_{k}\left(\omega_{1},\omega_{2}\right) RV_{t-k}$,
+
+或者，含有两个外生变量的
+
+$\tau_{t}=m+\theta_{1} \sum_{k=1}^{K} \varphi_{1k}\left(\omega_{11},
+\omega_{12}\right) RV_{t-k}+\theta_{2} \sum_{k=1}^{K}
+\varphi_{2k}\left(\omega_{21}, \omega_{22}\right) X_{t-k}$
+
+___
+
+**DCC-MIDAS:**
+
+$\mathbf{r}_{t} \sim_{\mathrm{i} . \mathrm{i} . \mathrm{d} .} N\left(\mu, H_{t}\right)$,
+
+$H_{t}=D_{t} R_{t} D_{t}$,
+
+$D_{t}=\operatorname{diag}\{\sqrt{H_{i, i, t}}\}$,
+
+$R_{t}=\left(Q_{t}^{*}\right)^{-1 / 2} Q_{t}\left(Q_{t}^{*}\right)^{-1 / 2}$
+
+$Q_{t}^{*}=\operatorname{diag} Q_{t}$
+
+$Q_{t}=(1-a-b) \bar{R}_{t}\left(\omega_{r}\right)+a \xi_{t} \xi_{t}^{\prime}+bQ_{t-1}$，
+
+$q_{i, j, t}$是$Q_{t}$的一个元素
+
+$q_{i, j, t}=\bar{\rho}_{i, j, t}(1-a-b)+a \xi_{i, t-1} \xi_{j, t-1}+b q_{i, j,t-1}$，
+
+$\bar{\rho}_{i, j, t}=\sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r}^{ij}\right) c_{i, j, t-l}$
+
+$c_{i, j, t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j, k}}{\sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k}^{2}} \sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{j, k}^{2}}}$,
+
+$\rho_{i, j, t}=\frac{q_{i, j, t}}{\sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}}$
+
+其中$\xi$是GARCH-MIDAS的标准化残差序列，$D_t$对角线元素(条件方差)服从GARCH-MIDAS模型。
+
+___
+
+**DCC-GARCH**
+
+$$\begin{aligned}
+&r_{t}=\mu_{t}+e_{t}\\
+&e_{t} \sim N\left(0, H_{t}\right)\\
+&\mathrm{H}_{\mathrm{t}}=\mathrm{D}_{\mathrm{t}} \mathrm{R}_{\mathrm{t}} \mathrm{D}_{\mathrm{t}}\\
+&D_{t}=\operatorname{diag}\{\sqrt{h_{i, i, t}}\}\\
+&\left[\mathrm{R}_{\mathrm{t}}\right]_{\mathrm{i}, \mathrm{j}}=\rho_{\mathrm{i}, \mathrm{j}, \mathrm{t}}\\
+&\rho_{i, j, t}=q_{i, j, t} / \sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}\\
+&q_{i, j, t}=(1-\alpha-\beta) \bar{\rho}_{i, j}+\alpha \varepsilon_{i, t-1} \varepsilon_{j, t-1}^{\prime}+\beta q_{i, j, t-1}
+\end{aligned}$$
+___
+
+# 模型实现
+
+## GARCH-MIDAS
+
 ___
 
 ```{r}
-set.seed(1001)
-n=250
-trend=1:n
-x=rnorm(4*n)
-z=rnorm(12*n)
-fn_x <- nealmon(p = c(1, -0.5), d = 8)
-fn_z <- nealmon(p = c(2, 0.5, -0.1), d = 17)
-y <- 2 + 0.1 * trend + mls(x, 0:7, 4) %*% fn_x + mls(z, 0:16, 12) %*% fn_z + rnorm(n)#数据模拟
+library(mfGARCH)
+help(package="mfGARCH")
+library(devtools)
+fit_mfgarch
+help(llh_simple)
+head(fit_mfgarch)
+#rv是5分钟已实现波动率，return是日对数收益率*100，nfic频率为周，其余为日
+head(df_mfgarch)
+#vix频率是日，NAI,dhousing，dinpro是月
 ```
 ___
 
-```{r warning=F}
-#对于参数无限制的情况，用OLS估计，
-eq_u <- lm(y ~ trend + mls(x, k = 0:7, m = 4) + mls(z, k = 0:16, m = 12))
-eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL)
-#使用指数Almon滞后多项式约束参数，则用NLS估计
-eq_r <- midas_r(y ~ trend + mls(x, 0:7, 4, nealmon) + mls(z, 0:16, 12,nealmon), start = list(x = c(1, -0.5), z = c(2, 0.5, -0.1)))
-#summary(eq_r)
+```{r,eval=F}
+head(df_financial)
+
+model1=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52)
+#默认短期波动是GJR-GARCH(1,1),权重系数是 $\omega_1=\omega_2$ 
+summary(model1)
+plot_weighting_scheme(model1)
+#权重系数呈指数下降
+str(model1)
+plot(model1$g,type='l',ylim=c(0,40))
+plot(model1$tau,type='p')
+plot(model1$est.weighting)
+var(log(model1$tau))
+summary(log(model1$tau))
+var(log(model1$tau*model1$g)[254:11306])/var(log(model1$tau)[254:11306])
+var(log(model1$tau)[254:11306])/var(log(model1$tau*model1$g)[254:11306])
+str(model1)
+model2=fit_mfgarch(data=df_financial,y='return',x='nfci',low.freq = "week", K = 52,weighting='beta.unrestricted')
+model3=fit_mfgarch(data = df_mfgarch, y = "return", x = "nfci", low.freq = "year_week", K = 52,x.two = "dindpro", K.two = 12, low.freq.two = "year_month", weighting.two ="beta.restricted")
+#具有两个不同频率的变量来描述长期波动
+
 ```
-___
 
-$$y_t=c+\sum_{j=1}^6\alpha_jy_{t-j}+\sum_{j=0}^7\beta_jx_{4j-1}+\varepsilon_t$$
 
-___
+## DCC-MIDAS
 
-```{r warning=F}
-#含有y滞后项的情况
-eq_xy=midas_r(y~mls(y,1:6,1,nealmon)+mls(x,0:7,4,nealmon),start=list(y=c(1,-0.5),x=c(1,-0.5)))
-summary(eq_xy)
-```
-___
-
-### RCC-MIDAS函数介绍(matlab)
+### DCC-MIDAS函数介绍(matlab)
 
 ```
 #matlab代码
@@ -783,4 +852,190 @@ aresid = (dgs10-0.045348197906591)./a;
 
 xlswrite('shortrunvar.xls',shortrunvar);
 
-### 拟极大似然法
+
+## midas实现
+
+```{r warning=F}
+library(midasr)
+x=1:12
+fmls(x,k=2,m=3)#数据处理，将高频数据转换为低频数据，k是滞后阶数，m是频率
+mls(x, 0:7, 4)
+```
+假设$y_t$是季度数据，现在用月度数据和周数据来对季度数据做回归，一个季度对应三个
+月，12周(假设每个月有4周)。
+
+___
+
+```{r}
+#数据模拟
+set.seed(1001)
+n=250
+trend=1:n
+x=rnorm(4*n)
+z=rnorm(12*n)
+fn_x <- nealmon(p = c(1, -0.5), d = 8)
+fn_z <- nealmon(p = c(2, 0.5, -0.1), d = 17)
+y <- 2 + 0.1 * trend + mls(x, 0:7, 4) %*% fn_x + mls(z, 0:16, 12) %*% fn_z + rnorm(n)
+```
+___
+
+```{r warning=F}
+#对于参数无限制的情况，用OLS估计，
+eq_u <- lm(y ~ trend + mls(x, k = 0:7, m = 4) + mls(z, k = 0:16, m = 12))
+eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL)
+summary(eq_u)
+#使用指数Almon滞后多项式约束参数，则用NLS估计
+eq_r <- midas_r(y ~ trend + mls(x, 0:7, 4, nealmon) + mls(z, 0:16, 12,nealmon), start = list(x = c(1, -0.5), z = c(2, 0.5, -0.1)))
+summary(eq_r)
+coef(eq_r, midas = TRUE)
+str(summary(eq_r))
+eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL, data
+= list(y = y, trend = trend, x = x, z = z))
+#将所有数据传入data中，不同频率的数据单独保存为一个数据框，(或向量)最后均传入list中。他们的长度要刚好是频率的倍数关系，不够的用NA补全。
+eq_u <- midas_r(y ~ trend + mls(x, 0:7, 4) + mls(z, 0:16, 12),start = NULL, data= list(data.frame(y = y, trend = trend), x = x,z = z))
+```
+```{r}
+#模型选择
+set_x <- expand_weights_lags(weights = c("nealmon", "almonp"), from = 0,to =c(5, 10), m = 1, start = list(nealmon = c(1, 1),almonp = c(1, 0, 0)))#weight表示肯能的权重系数设置，from,to设置滞后阶数，start对应权重设置参数
+set_x
+
+set_z <- expand_weights_lags(c("nealmon", "almonp"), from=0, to=c(10, 20), m=1,start = list(nealmon = c(1, -1), almonp = c(1,-1, 0)))
+set_z
+
+eqs_ic <- midas_r_ic_table(y ~ trend + mls(x, 0, m = 4) +fmls(z, 0, m = 12),table = list(z = set_z, x = set_x))
+
+#eqs_ic$candlist#得到所有的候选模型的估计结果
+eqs_ic$candlist[[5]]
+update(eqs_ic$candlist[[5]], Ofunction = "nls")
+summary(eqs_ic)
+eqs_ic$table#返回一个数据框，每行是一个候选模型和AIC等信息
+
+modsel(eqs_ic,IC='AIC',type="restricted")#根据AIC最小的restricted条件的最优模型
+```
+___
+
+$$y_t=c+\sum_{j=1}^6\alpha_jy_{t-j}+\sum_{j=0}^7\beta_jx_{4j-1}+\varepsilon_t$$
+
+___
+
+```{r warning=F}
+#含有y滞后项的情况
+eq_xy=midas_r(y~mls(y,1:6,1,nealmon)+mls(x,0:7,4,nealmon),start=list(y=c(1,-0.5),x=c(1,-0.5)))
+summary(eq_xy)
+```
+___
+
+```{r}
+#GDP(季度)和就业(月度)
+data("USqgdp", package = "midasr")
+data("USpayems", package = "midasr")
+y <- window(USqgdp, end = c(2011, 2))
+x <- window(USpayems, end = c(2011, 7))
+yg <- diff(log(y)) * 100
+xg <- diff(log(x)) * 100
+length(yg)#257
+length(xg)#870
+nx <- ts(c(NA, xg, NA, NA), start = start(x), frequency = 12)
+ny <- ts(c(rep(NA, 33), yg, NA), start = start(x), frequency = 4)
+```
+
+```{r}
+plot(nx,col='black',ylim=c(-4,6))
+lines(ny,col='red')
+```
+
+```{r}
+#样本分割
+xx=window(nx,start=c(1985,1),end=c(2009,3))#从1985年1月开始到2009年3月
+yy=window(ny,start=c(1985,1),end=c(2009,1))#从1985年1季度开始到2009年1季度
+length(xx)
+length(yy)
+beta0 <- midas_r(yy ~ mls(yy, 1, 1) + mls(xx, 3:11, 3, nbeta),start = list(xx = c(1.7, 1, 5)))
+```
+
+
+## 模型实现
+
+```{r}
+library(xlsx)
+epu=read.xlsx('./proposal/data/CEPU/cnepu_1_mar_2020_updated (1).xlsx',1)
+head(epu)
+#epu$Date=as.POSIXct((as.numeric(as.character(epu[,1]))-25569)*86400, tz="GMT",origin="1970-01-01")
+price=read.xlsx('./proposal/data/price.xls',1)
+head(price)
+price_close=price[c('date','close')]
+head(price_close)
+#计算收益率
+price_close$return=c(diff(log(price_close$close)),NaN)
+return=price_close[1:3620,c(1,3)]
+head(return)
+```
+```{r}
+#基本统计量计算
+str(price_close)
+summary(price_close$return)
+sum(is.na(price_close$close))
+price_close$return[3609:3623]
+summary(epu$CNEPU)
+plot(epu,type='l')#不平稳
+plot(return)#看不出来(平稳的)
+```
+
+```{r}
+#收益率序列自相关性
+acf(return$return,24)
+for(i in 1:6) print(Box.test(return$return,lag=i))#拒绝原假设，非白噪声序列
+adf.test(return$return)
+#收益率平稳性检验
+library(fUnitRoots)
+for(k in 1:3) print(adfTest(return$return,type = c("nc"),lag=k))
+for(k in 1:3) print(adfTest(return$return,type = c("c"),lag=k))#带有均值
+#for(k in 1:3) print(adfTest(return$return,type = c("ct"),lag=k))#带有趋势项和均值
+#收益率正态性检验
+qqnorm(return$return)
+qqline(return$return)#非正态
+normalTest(return$return,method='jb')
+```
+```{r}
+#EPU平稳性检验
+plot(diff(epu$CNEPU))#一阶差分后平稳
+for(k in 1:3) print(adfTest(diff(epu$CNEPU),type = c("nc"),lag=k))
+#EPU正态性检验
+##一阶差分EPU
+normalTest(diff(epu$CNEPU),method='jb')#非正态
+qqnorm(diff(epu$CNEPU))
+qqline(diff(epu$CNEPU))#非正态
+##原序列EPU
+normalTest(epu$CNEPU,method='jb')#正态
+qqnorm(epu$CNEPU)
+qqline(epu$CNEPU)#正态
+
+#EPU白噪声检验
+for(i in 1:6) print(Box.test(epu$CNEPU),lag=i)#非白噪声
+for(i in 1:6) print(Box.test(diff(epu$CNEPU)),lag=i)#非白噪声
+```
+epu一阶差分序列非正态分布，非白噪声序列，平稳
+对数收益率序列非正态分布，非白噪声序列，平稳
+
+
+```{r}
+library(TSA)
+data(airmiles)
+plot(log(airmiles),ylab='Log(airmiles)',xlab='Year', main='')
+acf(diff(diff(window(log(airmiles),end=c(2001,8)),12)),lag.max=48,main='')
+air.m1=arimax(log(airmiles),order=c(0,1,1),seasonal=list(order=c(0,1,1),
+     period=12),xtransf=data.frame(I911=1*(seq(airmiles)==69),
+     I911=1*(seq(airmiles)==69)),
+     transfer=list(c(0,0),c(1,0)),xreg=data.frame(Dec96=1*(seq(airmiles)==12),
+     Jan97=1*(seq(airmiles)==13),Dec02=1*(seq(airmiles)==84)),method='ML')
+summary(air.m1)
+```
+
+```{r}
+library(mfGARCH)
+help(package='mfGARCH')
+library(rmgarch)
+help(package='rmgarch')
+help(dccspec)
+```
+
