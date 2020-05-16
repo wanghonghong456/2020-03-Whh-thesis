@@ -3,7 +3,7 @@ title: "模型理论和简单实现"
 author: "WHH"
 date: "2020年3月"
 institute: 中南财经政法大学统计与数学学院
-csl: ./style/chinese-gb7714-2005-numeric.csl
+csl: ./style/chinese-gb7714-2015-numeric.csl
 css: ./style/markdown.css
 bibliography: [./Bibfile.bib]
 #nocite: '@*'
@@ -241,11 +241,27 @@ $\xi_{i,t}$ ,可以得到一个矩阵 $Q_t$ ,他的元素是:
 
 $$q_{i, j, t}=\bar{\rho}_{i, j, t}(1-a-b)+a \xi_{i, t-1} \xi_{j, t-1}+b q_{i, j,
 t-1}$$ {#eq:dcc-midas}
+
 $$\bar{\rho}_{i, j, t}=\sum_{l=1}^{K_{c}^{i j}} \varphi_{l}\left(\omega_{r}^{i
 j}\right) c_{i, j, t-l}$$
-$$c_{i, j, t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j, k}}{\sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k}^{2}} \sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{j, k}^{2}}}$$
+{#eq:longcore}
+
+同样地，[@eq:longcore]中的规范可以潜在地容纳权重$ω^{ij}_r$，滞后长度$N^{ij}_c$和
+历史相关性的跨度长度$K^{ij}_c$在任何一对序列之间都不同。通常，我们将使用所有对序
+列共同的单个设置，类似于选择 单变量模型中常见MIDAS过滤器的定义。 我们将在下一个
+小节中讨论DCC–MIDAS过滤方案的单参数选择与多参数选择的含义。
+
+$$c_{i, j, t}=\frac{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k} \xi_{j,
+k}}{\sqrt{\sum_{k=t-N_{c}^{i j}}^{t} \xi_{i, k}^{2}} \sqrt{\sum_{k=t-N_{c}^{i
+j}}^{t} \xi_{j, k}^{2}}}$$
+
+归一化将允许我们稍后用相关矩阵讨论正则条件。然后可以将相关性计算为:
+
 $$\rho_{i, j, t}=\frac{q_{i, j, t}}{\sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}}$$ {#eq:dcc-midas-q}
 
+但是，我们在本文中确实涵盖了需要施加在经过MIDAS滤波的长期相关分量上的正则条件，以获得正定矩阵。为了满足相关矩阵的正则条件，需要对短期动态相关成分
+进行标准化处理， $\rho_{i, j, t}$表示标准化处理后的短期动态相
+关成分，它是构成相关系数矩阵 $R_t$ 的元素，标准化公式为[@eq:dcc-midas-q].
 
 ___
 
@@ -260,6 +276,13 @@ $$q_{i, j, t}-\bar{\rho}_{i, j, t}=a\left(\xi_{i, t-1} \xi_{j, t-1}-\bar{\rho}_{
 动。短期波动成分基于每日的回报率，它围绕由一定时间段内(一个月或一个季度)的已实现
 波动率驱动的长期波动成分上下浮动。并且同样可以将相关系数与宏观变量联系起来,建立
 类似于GARCH-MIDAS的动态过程。
+
+
+在GARCH-MIDAS中，短期成分是基于每日（平方）收益的GARCH成分，它围绕由每月，每季度
+或每两年计算的已实现波动率驱动的长期成分移动。 MIDAS加权方案可帮助我们提取日波动
+率围绕其缓慢移动的长期成分。即，每日动态服从DCC方案，其相关性围绕长期组件移动。 DCC的自回归动态结构将捕获对关联的短暂影响，后者的截获是一个缓慢移动的过程，反映了基本的或长期的
+相关时间变化的原因。 原则上，我们可以将长期相关性成分与宏观经济来源联系起来，就像Engle等人一样。 （2006）研究了很长的历史时间序列，类似于Schwert（1989），并将波动率直接与各种关键的宏观经济时间序列联系起来。 
+
 
 ___
 
@@ -550,13 +573,16 @@ $H_{t}=D_{t} R_{t} D_{t}$,
 
 $D_{t}=\operatorname{diag}\{\sqrt{H_{i, i, t}}\}$,
 
+令：
+
 $R_{t}=\left(Q_{t}^{*}\right)^{-1 / 2} Q_{t}\left(Q_{t}^{*}\right)^{-1 / 2}$
 
 $Q_{t}^{*}=\operatorname{diag} Q_{t}$
 
 $Q_{t}=(1-a-b) \bar{R}_{t}\left(\omega_{r}\right)+a \xi_{t} \xi_{t}^{\prime}+bQ_{t-1}$，
 
-$q_{i, j, t}$是$Q_{t}$的一个元素
+$q_{i, j, t}$是$Q_{t}$的一个元素,$\rho_{i,j,t}$是$R_t$的非对角线元素。$Q_{t}$是
+标准化残差的无条件协方差。$\bar{\rho}_{i, j, t}$ 是样本相关系数的MIDAS加权和。
 
 $q_{i, j, t}=\bar{\rho}_{i, j, t}(1-a-b)+a \xi_{i, t-1} \xi_{j, t-1}+b q_{i, j,t-1}$，
 
@@ -579,9 +605,12 @@ $$\begin{aligned}
 &D_{t}=\operatorname{diag}\{\sqrt{h_{i, i, t}}\}\\
 &\left[\mathrm{R}_{\mathrm{t}}\right]_{\mathrm{i}, \mathrm{j}}=\rho_{\mathrm{i}, \mathrm{j}, \mathrm{t}}\\
 &\rho_{i, j, t}=q_{i, j, t} / \sqrt{q_{i, i, t}} \sqrt{q_{j, j, t}}\\
-&q_{i, j, t}=(1-\alpha-\beta) \bar{\rho}_{i, j}+\alpha \varepsilon_{i, t-1} \varepsilon_{j, t-1}^{\prime}+\beta q_{i, j, t-1}
+&q_{i, j, t}=(1-\alpha-\beta) \bar{\rho}_{i, j}+\alpha \varepsilon_{i, t-1}
+\varepsilon_{j, t-1}^{\prime}+\beta q_{i, j, t-1}\\
+&\bar{\rho}_{i, j}=\frac{1}{T}\sum_1^Te_{i,t}e_{j,t}
 \end{aligned}$$
 ___
+
 
 # 模型实现
 
@@ -957,18 +986,42 @@ beta0 <- midas_r(yy ~ mls(yy, 1, 1) + mls(xx, 3:11, 3, nbeta),start = list(xx = 
 ## 模型实现
 
 ```{r}
+#香港大学EPU
 library(xlsx)
 epu=read.xlsx('./proposal/data/CEPU/cnepu_1_mar_2020_updated (1).xlsx',1)
 head(epu)
-#epu$Date=as.POSIXct((as.numeric(as.character(epu[,1]))-25569)*86400, tz="GMT",origin="1970-01-01")
-price=read.xlsx('./proposal/data/price.xls',1)
-head(price)
+#epu$Date=as.POSIXct((as.numeric(as.character(epu[,1]))-25569)*86400,tz="GMT",origin="1970-01-01")
+```
+```{r}
+#股票指数
+price=data.frame(read.xlsx('./proposal/data/price.xls',1))
+HS=data.frame(read.xlsx('./proposal/data/price.xls',2))
+pdate=price$date
+hdate=HS$date
+
+phdate=intersect(pdate,hdate)#由于交易日期不同，取交集
+length(phdate)#3517
+#dpdate=setdiff(pdate, phdate)
+#dhdate=setdiff(hdate, phdate)
+price=price[pdate %in% phdate,]
+HS=HS[hdate %in% phdate,]
 price_close=price[c('date','close')]
+HS_close=HS[c('date','close')]
 head(price_close)
+
 #计算收益率
-price_close$return=c(diff(log(price_close$close)),NaN)
-return=price_close[1:3620,c(1,3)]
-head(return)
+price_close$return=c(diff(log(price_close$close)),NaN)*100
+HS_close$return=c(diff(log(HS_close$close)),NaN)*100
+
+head(price_close)
+data=cbind(price_close[,c(1,3)],HS_close$return)#得到含有日期的收益率序列
+str(data)
+write.xlsx(data,'./proposal/data/data.xlsx')
+```
+```{r}
+#baker的EPU指数
+cepu=read.xlsx('./proposal/data/China_Mainland_Paper_EPU.xlsx',3)
+acpu=read.xlsx('./proposal/data/US_Policy_Uncertainty_Data.xlsx',1)
 ```
 ```{r}
 #基本统计量计算
@@ -1038,4 +1091,3 @@ library(rmgarch)
 help(package='rmgarch')
 help(dccspec)
 ```
-
