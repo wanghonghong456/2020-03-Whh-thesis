@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 paperdiag.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="8.26772in" height="11.6929in"
+		viewBox="0 0 595.276 841.89" xml:space="preserve" color-interpolation-filters="sRGB" class="st9">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st2 {fill:#000000;font-family:宋体;font-size:1.5em}
+		.st3 {font-size:1em}
+		.st4 {fill:#000000;font-family:宋体;font-size:1.00001em}
+		.st5 {marker-start:url(#mrkr2-49);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st6 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.18796992481203}
+		.st7 {fill:#000000;font-family:宋体;font-size:0.833336em}
+		.st8 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st9 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend2">
+			<path d="M 1 1 L 0 0 L 1 -1 L 1 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr2-49" class="st6" v:arrowType="2" v:arrowSize="3" v:setback="4.84" refX="4.84" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend2" transform="scale(5.32) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(35.2822,-127.559)">
+			<title>矩形</title>
+			<desc>经济政策不确定性对中美股票市场波动率及相关性影响研究</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="17.792" cy="544.252" width="35.59" height="595.276"/>
+			<rect x="0" y="246.614" width="35.5839" height="595.276" class="st1"/>
+			<text x="8.79" y="279.65" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>经<tspan x="8.79"
+						dy="1.2em" class="st3">济</tspan><tspan x="8.79" dy="1.2em" class="st3">政</tspan><tspan x="8.79" dy="1.2em"
+						class="st3">策</tspan><tspan x="8.79" dy="1.2em" class="st3">不</tspan><tspan x="8.79" dy="1.2em" class="st3">确</tspan><tspan
+						x="8.79" dy="1.2em" class="st3">定</tspan><tspan x="8.79" dy="1.2em" class="st3">性</tspan><tspan x="8.79"
+						dy="1.2em" class="st3">对</tspan><tspan x="8.79" dy="1.2em" class="st3">中</tspan><tspan x="8.79" dy="1.2em"
+						class="st3">美</tspan><tspan x="8.79" dy="1.2em" class="st3">股</tspan><tspan x="8.79" dy="1.2em" class="st3">票</tspan><tspan
+						x="8.79" dy="1.2em" class="st3">市</tspan><tspan x="8.79" dy="1.2em" class="st3">场</tspan><tspan x="8.79"
+						dy="1.2em" class="st3">波</tspan><tspan x="8.79" dy="1.2em" class="st3">动</tspan><tspan x="8.79" dy="1.2em"
+						class="st3">率</tspan><tspan x="8.79" dy="1.2em" class="st3">及</tspan><tspan x="8.79" dy="1.2em" class="st3">相</tspan><tspan
+						x="8.79" dy="1.2em" class="st3">关</tspan><tspan x="8.79" dy="1.2em" class="st3">性</tspan><tspan x="8.79"
+						dy="1.2em" class="st3">影</tspan><tspan x="8.79" dy="1.2em" class="st3">响</tspan><tspan x="8.79" dy="1.2em"
+						class="st3">研</tspan><tspan x="8.79" dy="1.2em" class="st3">究</tspan></text>		</g>
+		<g id="shape3-29" v:mID="3" v:groupContext="shape" transform="translate(113.386,-731.241)">
+			<title>矩形.3</title>
+			<desc>提出问题</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="828.765" width="85.04" height="26.2496"/>
+			<rect x="0" y="815.64" width="85.0394" height="26.2496" class="st1"/>
+			<text x="18.52" y="832.37" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>提出问题</text>		</g>
+		<g id="shape4-32" v:mID="4" v:groupContext="shape" transform="translate(113.386,-603.854)">
+			<title>矩形.4</title>
+			<desc>理论基础</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="828.348" width="85.04" height="27.0845"/>
+			<rect x="0" y="814.805" width="85.0394" height="27.0845" class="st1"/>
+			<text x="18.52" y="831.95" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>理论基础</text>		</g>
+		<g id="shape5-35" v:mID="5" v:groupContext="shape" transform="translate(113.386,-432.376)">
+			<title>矩形.5</title>
+			<desc>波动率分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="827.832" width="85.04" height="28.1157"/>
+			<rect x="0" y="813.774" width="85.0394" height="28.1157" class="st1"/>
+			<text x="12.52" y="831.43" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>波动率分析</text>		</g>
+		<g id="shape6-38" v:mID="6" v:groupContext="shape" transform="translate(113.386,-220.151)">
+			<title>矩形.6</title>
+			<desc>相关性分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="827.832" width="85.04" height="28.1157"/>
+			<rect x="0" y="813.774" width="85.0394" height="28.1157" class="st1"/>
+			<text x="12.52" y="831.43" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>相关性分析</text>		</g>
+		<g id="shape8-41" v:mID="8" v:groupContext="shape" transform="translate(113.386,-73.1743)">
+			<title>矩形.8</title>
+			<desc>结论与建议</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="42.5197" cy="827.832" width="85.04" height="28.1157"/>
+			<rect x="0" y="813.774" width="85.0394" height="28.1157" class="st1"/>
+			<text x="12.52" y="831.43" class="st4" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>结论与建议</text>		</g>
+		<g id="shape23-44" v:mID="23" v:groupContext="shape" v:layerMember="0" transform="translate(113.386,-87.2322)">
+			<title>动态连接线</title>
+			<path d="M-3.63 841.89 L-3.99 841.89 L-28.35 841.89 L-28.35 214.61" class="st5"/>
+		</g>
+		<g id="shape27-50" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(113.386,-744.366)">
+			<title>动态连接线.27</title>
+			<path d="M-3.63 841.89 L-3.99 841.89 L-28.35 841.89 L-28.35 877.59" class="st5"/>
+		</g>
+		<g id="shape29-55" v:mID="29" v:groupContext="shape" v:layerMember="0" transform="translate(113.386,-617.396)">
+			<title>动态连接线.29</title>
+			<path d="M-3.63 841.89 L-3.99 841.89 L-28.35 841.89 L-28.35 892.36" class="st5"/>
+		</g>
+		<g id="shape30-60" v:mID="30" v:groupContext="shape" v:layerMember="0" transform="translate(120.472,-439.347)">
+			<title>动态连接线.30</title>
+		</g>
+		<g id="shape34-61" v:mID="34" v:groupContext="shape" transform="translate(215.433,-663.806)">
+			<title>矩形.34</title>
+			<desc>经济政策不确定性测度</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="830.723" width="119.06" height="22.3336"/>
+			<rect x="0" y="819.556" width="119.055" height="22.3336" class="st1"/>
+			<text x="9.53" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>经济政策不确定性测度</text>		</g>
+		<g id="shape50-64" v:mID="50" v:groupContext="shape" transform="translate(215.433,-734.367)">
+			<title>矩形.50</title>
+			<desc>国内外研究综述</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="24.53" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>国内外研究综述</text>		</g>
+		<g id="shape51-67" v:mID="51" v:groupContext="shape" transform="translate(215.433,-704.932)">
+			<title>矩形.51</title>
+			<desc>研究内容、思路及创新点</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="4.53" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>研究内容、思路及创新点</text>		</g>
+		<g id="shape54-70" v:mID="54" v:groupContext="shape" transform="translate(215.433,-625.525)">
+			<title>矩形.54</title>
+			<desc>经济政策不确定性对股票市场的影响机制</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="828.348" width="119.06" height="27.0845"/>
+			<rect x="0" y="814.805" width="119.055" height="27.0845" class="st1"/>
+			<text x="4.53" y="825.35" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>经济政策不确定性对股票<tspan
+						x="24.53" dy="1.2em" class="st3">市场的影响机制</tspan></text>		</g>
+		<g id="shape55-74" v:mID="55" v:groupContext="shape" transform="translate(215.433,-594.33)">
+			<title>矩形.55</title>
+			<desc>GARCH-MIDAS模型介绍</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="12.03" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>GARCH-MIDAS模型介绍</text>		</g>
+		<g id="shape56-77" v:mID="56" v:groupContext="shape" transform="translate(215.433,-763.803)">
+			<title>矩形.56</title>
+			<desc>研究背景及意义</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="24.53" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>研究背景及意义</text>		</g>
+		<g id="shape57-80" v:mID="57" v:groupContext="shape" v:layerMember="0" transform="translate(113.386,-234.209)">
+			<title>动态连接线.57</title>
+			<path d="M-3.63 841.89 L-3.99 841.89 L-28.35 841.89 L-28.35 735.94" class="st5"/>
+		</g>
+		<g id="shape58-85" v:mID="58" v:groupContext="shape" transform="translate(215.433,-498.399)">
+			<title>矩形.58</title>
+			<desc>描述性分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="34.53" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>描述性分析</text>		</g>
+		<g id="shape59-88" v:mID="59" v:groupContext="shape" transform="translate(215.433,-435.267)">
+			<title>矩形.59</title>
+			<desc>中国股市波动率特征</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="830.723" width="119.06" height="22.3336"/>
+			<rect x="0" y="819.556" width="119.055" height="22.3336" class="st1"/>
+			<text x="14.53" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>中国股市波动率特征</text>		</g>
+		<g id="shape60-91" v:mID="60" v:groupContext="shape" transform="translate(215.433,-382.677)">
+			<title>矩形.60</title>
+			<desc>美国股市波动率特征</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="829.604" width="119.06" height="24.5717"/>
+			<rect x="0" y="817.318" width="119.055" height="24.5717" class="st1"/>
+			<text x="14.53" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>美国股市波动率特征</text>		</g>
+		<g id="shape62-94" v:mID="62" v:groupContext="shape" transform="translate(215.433,-221.923)">
+			<title>矩形.62</title>
+			<desc>中美股市相关性特征</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="829.604" width="119.06" height="24.5717"/>
+			<rect x="0" y="817.318" width="119.055" height="24.5717" class="st1"/>
+			<text x="14.53" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>中美股市相关性特征</text>		</g>
+		<g id="shape86-97" v:mID="86" v:groupContext="shape" transform="translate(215.433,-124.828)">
+			<title>矩形.86</title>
+			<desc>金融危机前后中美股市相关性特征对比</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="824.882" width="119.06" height="34.0157"/>
+			<rect x="0" y="807.874" width="119.055" height="34.0157" class="st1"/>
+			<text x="4.53" y="821.88" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>金融危机前后中美股市相<tspan
+						x="29.53" dy="1.2em" class="st3">关性特征对比</tspan></text>		</g>
+		<g id="shape111-101" v:mID="111" v:groupContext="shape" transform="translate(359.179,-516.249)">
+			<title>矩形.111</title>
+			<desc>描述性统计分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="59.36" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>描述性统计分析</text>		</g>
+		<g id="shape112-104" v:mID="112" v:groupContext="shape" transform="translate(359.179,-481.89)">
+			<title>矩形.112</title>
+			<desc>基本统计检验</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="64.36" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>基本统计检验</text>		</g>
+		<g id="shape113-107" v:mID="113" v:groupContext="shape" transform="translate(359.179,-435.848)">
+			<title>矩形.113</title>
+			<desc>含有不同外生变量的GARCH-MIDAS模型构建</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="824.882" width="188.73" height="34.0157"/>
+			<rect x="0" y="807.874" width="188.728" height="34.0157" class="st1"/>
+			<text x="6.86" y="821.88" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>含有不同外生变量的GARCH-MIDAS模型构<tspan
+						x="89.36" dy="1.2em" class="st3">建</tspan></text>		</g>
+		<g id="shape114-111" v:mID="114" v:groupContext="shape" transform="translate(359.179,-406.548)">
+			<title>矩形.114</title>
+			<desc>模型比较及最优模型选择</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="39.36" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型比较及最优模型选择</text>		</g>
+		<g id="shape115-114" v:mID="115" v:groupContext="shape" transform="translate(359.179,-371.51)">
+			<title>矩形.115</title>
+			<desc>模型结果的解释分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="49.36" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型结果的解释分析</text>		</g>
+		<g id="shape116-117" v:mID="116" v:groupContext="shape" transform="translate(359.179,-325.984)">
+			<title>矩形.116</title>
+			<desc>相关性度量</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="829.604" width="188.73" height="24.5717"/>
+			<rect x="0" y="817.318" width="188.728" height="24.5717" class="st1"/>
+			<text x="69.36" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>相关性度量</text>		</g>
+		<g id="shape117-120" v:mID="117" v:groupContext="shape" transform="translate(359.179,-295.027)">
+			<title>矩形.117</title>
+			<desc>残差序列的描述性统计</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="829.604" width="188.73" height="24.5717"/>
+			<rect x="0" y="817.318" width="188.728" height="24.5717" class="st1"/>
+			<text x="44.36" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>残差序列的描述性统计</text>		</g>
+		<g id="shape118-123" v:mID="118" v:groupContext="shape" transform="translate(359.179,-255.469)">
+			<title>矩形.118</title>
+			<desc>含有不同外生变量的DCC-MIDAS模型构建</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="6.86" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>含有不同外生变量的DCC-MIDAS模型构建</text>		</g>
+		<g id="shape119-126" v:mID="119" v:groupContext="shape" transform="translate(359.179,-223.042)">
+			<title>矩形.119</title>
+			<desc>模型比较与最优模型选择</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="830.723" width="188.73" height="22.3336"/>
+			<rect x="0" y="819.556" width="188.728" height="22.3336" class="st1"/>
+			<text x="39.36" y="833.72" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型比较与最优模型选择</text>		</g>
+		<g id="shape120-129" v:mID="120" v:groupContext="shape" transform="translate(359.179,-190.615)">
+			<title>矩形.120</title>
+			<desc>模型结果解释分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="829.604" width="188.73" height="24.5717"/>
+			<rect x="0" y="817.318" width="188.728" height="24.5717" class="st1"/>
+			<text x="54.36" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>模型结果解释分析</text>		</g>
+		<g id="shape121-132" v:mID="121" v:groupContext="shape" transform="translate(359.179,-148.073)">
+			<title>矩形.121</title>
+			<desc>金融危机前经济政策不确定性对中美股市相关性的影响</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="827.832" width="188.73" height="28.1157"/>
+			<rect x="0" y="813.774" width="188.728" height="28.1157" class="st1"/>
+			<text x="4.36" y="824.83" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>金融危机前经济政策不确定性对中美股市<tspan
+						x="64.36" dy="1.2em" class="st3">相关性的影响</tspan></text>		</g>
+		<g id="shape122-136" v:mID="122" v:groupContext="shape" transform="translate(359.179,-105.531)">
+			<title>矩形.122</title>
+			<desc>金融危机后经济政策不确定性对中美股市相关性的影响</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="94.3639" cy="827.832" width="188.73" height="28.1157"/>
+			<rect x="0" y="813.774" width="188.728" height="28.1157" class="st1"/>
+			<text x="4.36" y="824.83" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>金融危机后经济政策不确定性对中美股市<tspan
+						x="64.36" dy="1.2em" class="st3">相关性的影响</tspan></text>		</g>
+		<g id="shape123-140" v:mID="123" v:groupContext="shape" v:layerMember="0" transform="translate(113.386,-446.434)">
+			<title>动态连接线.123</title>
+			<path d="M-3.63 841.89 L-3.99 841.89 L-28.35 841.89 L-28.35 933.99" class="st5"/>
+		</g>
+		<g id="shape124-145" v:mID="124" v:groupContext="shape" transform="translate(215.433,-309.573)">
+			<title>矩形.124</title>
+			<desc>描述性分析</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="829.604" width="119.06" height="24.5717"/>
+			<rect x="0" y="817.318" width="119.055" height="24.5717" class="st1"/>
+			<text x="34.53" y="832.6" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>描述性分析</text>		</g>
+		<g id="shape125-148" v:mID="125" v:groupContext="shape" transform="translate(215.433,-563.136)">
+			<title>矩形.125</title>
+			<desc>DCC-MIDAS模型介绍</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="59.5276" cy="831.891" width="119.06" height="19.9978"/>
+			<rect x="0" y="821.892" width="119.055" height="19.9978" class="st1"/>
+			<text x="17.03" y="834.89" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>DCC-MIDAS模型介绍</text>		</g>
+		<g id="shape128-151" v:mID="128" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-744.366)">
+			<title>动态连接线.128</title>
+			<path d="M0 841.89 L5.31 841.89 L5.31 812.45 L17.01 812.45" class="st8"/>
+		</g>
+		<g id="shape129-154" v:mID="129" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-744.366)">
+			<title>动态连接线.129</title>
+			<path d="M0 841.89 L5.31 841.89 L5.31 871.33 L17.01 871.33" class="st8"/>
+		</g>
+		<g id="shape130-157" v:mID="130" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-617.396)">
+			<title>动态连接线.130</title>
+			<path d="M0 841.89 L5.31 841.89 L5.31 784.31 L17.01 784.31" class="st8"/>
+		</g>
+		<g id="shape131-160" v:mID="131" v:groupContext="shape" v:layerMember="0" transform="translate(216.673,-645.518)">
+			<title>动态连接线.131</title>
+			<path d="M-1.24 848.34 L-12.93 848.34 L-12.93 849.61" class="st8"/>
+		</g>
+		<g id="shape132-163" v:mID="132" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-617.949)">
+			<title>动态连接线.132</title>
+			<path d="M0 842.44 L5.31 842.44 L5.31 855.51 L17.01 855.51" class="st8"/>
+		</g>
+		<g id="shape133-166" v:mID="133" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-617.396)">
+			<title>动态连接线.133</title>
+			<path d="M0 841.89 L5.31 841.89 L5.31 886.15 L17.01 886.15" class="st8"/>
+		</g>
+		<g id="shape137-169" v:mID="137" v:groupContext="shape" v:layerMember="0" transform="translate(327.402,-446.434)">
+			<title>动态连接线.137</title>
+			<path d="M7.09 841.89 L15.74 841.89 L15.74 893.36 L7.09 893.36" class="st8"/>
+		</g>
+		<g id="shape138-172" v:mID="138" v:groupContext="shape" v:layerMember="0" transform="translate(359.179,-456.732)">
+			<title>动态连接线.138</title>
+			<path d="M0 845.77 L-16.04 845.77 L-16.04 852.19" class="st8"/>
+		</g>
+		<g id="shape139-175" v:mID="139" v:groupContext="shape" v:layerMember="0" transform="translate(359.179,-414.369)">
+			<title>动态连接线.139</title>
+			<path d="M0 838.54 L-16.04 838.54 L-16.04 831.06" class="st8"/>
+		</g>
+		<g id="shape140-178" v:mID="140" v:groupContext="shape" v:layerMember="0" transform="translate(359.179,-381.733)">
+			<title>动态连接线.140</title>
+			<path d="M0 840.95 L-16.04 840.95 L-16.04 828.66" class="st8"/>
+		</g>
+		<g id="shape142-181" v:mID="142" v:groupContext="shape" v:layerMember="0" transform="translate(222.52,-508.398)">
+			<title>动态连接线.142</title>
+			<path d="M-7.09 841.89 L-18.5 841.89 L-18.5 955.32 L-7.09 955.32" class="st8"/>
+		</g>
+		<g id="shape144-184" v:mID="144" v:groupContext="shape" v:layerMember="0" transform="translate(208.346,-321.859)">
+			<title>动态连接线.144</title>
+			<path d="M7.09 841.89 L-4.7 841.89 L-4.7 1021.91 L7.09 1021.91" class="st8"/>
+		</g>
+		<g id="shape145-187" v:mID="145" v:groupContext="shape" v:layerMember="0" transform="translate(198.425,-227.122)">
+			<title>动态连接线.145</title>
+			<path d="M0 834.8 L2.86 834.8 A2.3622 2.3622 0 1 1 7.58 834.8 L17.01 834.8" class="st8"/>
+		</g>
+		<g id="shape146-190" v:mID="146" v:groupContext="shape" v:layerMember="0" transform="translate(215.433,-439.347)">
+			<title>动态连接线.146</title>
+			<path d="M0 834.8 L-9.05 834.8 A2.3622 2.3622 -180 1 0 -13.78 834.8 L-17.01 834.8" class="st8"/>
+		</g>
+		<g id="shape147-193" v:mID="147" v:groupContext="shape" v:layerMember="0" transform="translate(366.266,-338.27)">
+			<title>动态连接线.147</title>
+			<path d="M-7.09 841.89 L-23.5 841.89 L-23.5 872.85 L-7.09 872.85" class="st8"/>
+		</g>
+		<g id="shape148-196" v:mID="148" v:groupContext="shape" v:layerMember="0" transform="translate(331.542,-326.048)">
+			<title>动态连接线.148</title>
+			<path d="M2.95 846.08 L11.23 846.08 L11.23 851.87" class="st8"/>
+		</g>
+		<g id="shape149-199" v:mID="149" v:groupContext="shape" v:layerMember="0" transform="translate(352.093,-266.636)">
+			<title>动态连接线.149</title>
+			<path d="M7.09 841.89 L-8.58 841.89 L-8.58 905.62 L7.09 905.62" class="st8"/>
+		</g>
+		<g id="shape150-202" v:mID="150" v:groupContext="shape" v:layerMember="0" transform="translate(359.179,-227.122)">
+			<title>动态连接线.150</title>
+			<path d="M0 834.8 L-13.3 834.8 A2.3622 2.3622 -180 0 0 -18.03 834.8 L-24.69 834.8" class="st8"/>
+		</g>
+		<g id="shape151-205" v:mID="151" v:groupContext="shape" v:layerMember="0" transform="translate(352.093,-162.131)">
+			<title>动态连接线.151</title>
+			<path d="M7.09 841.89 L-7.46 841.89 L-7.46 884.43 L7.09 884.43" class="st8"/>
+		</g>
+		<g id="shape152-208" v:mID="152" v:groupContext="shape" v:layerMember="0" transform="translate(332.474,-148.871)">
+			<title>动态连接线.152</title>
+			<path d="M2.01 848.92 L12.16 848.92 L12.16 849.03" class="st8"/>
+		</g>
+		<g id="shape153-211" v:mID="153" v:groupContext="shape" v:layerMember="0" transform="translate(352.093,-527.416)">
+			<title>动态连接线.153</title>
+			<path d="M7.09 841.89 L-8.95 841.89 L-8.95 876.25 L7.09 876.25" class="st8"/>
+		</g>
+		<g id="shape154-214" v:mID="154" v:groupContext="shape" v:layerMember="0" transform="translate(331.728,-512.86)">
+			<title>动态连接线.154</title>
+			<path d="M2.76 846.35 L11.41 846.35 L11.41 851.6" class="st8"/>
+		</g>
+		<g id="shape155-217" v:mID="155" v:groupContext="shape" v:layerMember="0" transform="translate(70.8661,-418.11)">
+			<title>动态连接线.155</title>
+			<path d="M0 834.8 L14.17 834.8" class="st8"/>
+		</g>
+	</g>
+</svg>

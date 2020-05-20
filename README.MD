@@ -1,5 +1,14 @@
 # Log
 
+### 2020-05-20 Wed 6:40
+
+思维框架图和甘特图
+
+### 2020-05-19 Tue 19:36
+
+尝试修改matlab的DCC-MIDAS代码，目前可基本实现，不过还有很多部分需完全明白，才能
+改动
+
 ### 2020-05-04 Mon 14:36
 
 |...|变量|GATCH-MIDAS|GATCH-MIDAS|DCC-GARCH|DCC-MIDAS|
